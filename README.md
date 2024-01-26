@@ -1,2 +1,2 @@
-# Super-Marigolo
+# Super Marigolo
 Global Game Jam Project
