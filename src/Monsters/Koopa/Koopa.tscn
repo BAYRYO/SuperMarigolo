@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://wg3nvehsxu37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yo4t"]
+size = Vector2(42, 40)
+
+[node name="Koopa" type="Node2D"]
+
+[node name="Koopa" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Koopa"]
+position = Vector2(-0.0669403, -0.274563)
+shape = SubResource("RectangleShape2D_0yo4t")
+
+[node name="ColorRect" type="ColorRect" parent="Koopa"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg27uw3b83igu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_un8vi"]
+size = Vector2(39, 39)
+
+[node name="FireFlower" type="Node2D"]
+
+[node name="FireFlower" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireFlower"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_un8vi")
+
+[node name="ColorRect" type="ColorRect" parent="FireFlower"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
