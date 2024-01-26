@@ -1,21 +1,30 @@
 using Godot;
 using System;
+using SuperMarigolo.Scripts.PatternState;
 
 public partial class Player : CharacterBody2D
 {
-	public const float Speed = 300.0f;
-	public const float JumpVelocity = -400.0f;
+	private String _current_state_name;
+	private State _current_state;
+
+	public DefaultState DefaultState = new DefaultState();
+	public GiantState GiantState = new GiantState();
+	public StarState StarState = new StarState();
+	
+	private float Speed = 300.0f;
+	private float JumpVelocity = -400.0f;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
-	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+	private float _gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
 	public override void _PhysicsProcess(double delta)
 	{
+		_current_state.doState(this);
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.
 		if (!IsOnFloor())
-			velocity.Y += gravity * (float)delta;
+			velocity.Y += _gravity * (float)delta;
 
 		// Handle Jump.
 		if (Input.IsActionJustPressed("jump") && IsOnFloor())
@@ -32,9 +41,17 @@ public partial class Player : CharacterBody2D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
-
-		GD.Print(IsOnFloor());
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+	
+	public void changeSpeed(float speed)
+	{
+		Speed = speed;
+	}
+	
+	public void changeJumpVelocity(float jumpVelocity)
+	{
+		JumpVelocity = jumpVelocity;
 	}
 }
