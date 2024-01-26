@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7ndc32m8raka"]
+[gd_scene load_steps=3 format=3 uid="uid://b7ndc32m8raka"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_vfjtd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5n11s"]
-size = Vector2(42, 40)
+size = Vector2(42, 45.2746)
 
 [node name="Player" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_vfjtd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-0.0669403, -0.274563)
+position = Vector2(-0.0669403, 2.36272)
 shape = SubResource("RectangleShape2D_5n11s")
 
 [node name="ColorRect" type="ColorRect" parent="Player"]
@@ -23,3 +26,4 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
