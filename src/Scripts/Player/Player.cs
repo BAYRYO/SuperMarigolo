@@ -12,10 +12,16 @@ public partial class Player : CharacterBody2D
 	public StarState StarState = new StarState();
 	
 	private float Speed = 300.0f;
-	private float JumpVelocity = -20.0f;
+	private float JumpVelocity = -80.0f;
 
+	private AnimationPlayer _characterHead;
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	private float _gravity = 1000f;
+
+	public override void _Ready()
+	{
+		_characterHead = GetNode<AnimationPlayer>("Head/AnimationPlayer");
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -28,7 +34,7 @@ public partial class Player : CharacterBody2D
 
 		// Handle Jump.
 		if (Input.IsActionJustPressed("jump") && IsOnFloor())
-			velocity.Y = JumpVelocity*1.7f;
+			velocity.Y = JumpVelocity*10f;
 
 		Vector2 direction = Input.GetVector("move_left", "move_right", "jump", "move_down");
 		if (direction != Vector2.Zero)
@@ -48,8 +54,18 @@ public partial class Player : CharacterBody2D
 		Speed = speed;
 	}
 	
-	public void changeJumpVelocity(float jumpVelocity)
+	public void changeGravity(float gravity)
 	{
-		JumpVelocity = jumpVelocity;
+		_gravity = gravity;
+	}
+	
+	public void changeState(State state)
+	{
+		_current_state = state;
+	}
+	
+	public AnimationPlayer getCharacterHead()
+	{
+		return _characterHead;
 	}
 }
