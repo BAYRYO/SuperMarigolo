@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://kgfpwtmokfrq"]
+[gd_scene load_steps=3 format=3 uid="uid://kgfpwtmokfrq"]
+
+[ext_resource type="Script" path="res://Scripts/Goomba/Goomba.cs" id="1_icpb4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ole0k"]
 size = Vector2(42, 40)
@@ -6,10 +8,7 @@ size = Vector2(42, 40)
 [node name="Monster" type="Node2D"]
 
 [node name="Goomba" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Goomba"]
-position = Vector2(-0.0669403, -0.274563)
-shape = SubResource("RectangleShape2D_ole0k")
+script = ExtResource("1_icpb4")
 
 [node name="ColorRect" type="ColorRect" parent="Goomba"]
 anchors_preset = 8
@@ -24,3 +23,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.266667, 0.168627, 0.0156863, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goomba"]
+position = Vector2(-0.0669403, -0.274563)
+shape = SubResource("RectangleShape2D_ole0k")
