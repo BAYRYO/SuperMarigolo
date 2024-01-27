@@ -47,6 +47,15 @@ theme_override_fonts/font = ExtResource("1_t1qw4")
 theme_override_font_sizes/font_size = 100
 text = "GAME OVER"
 
+[node name="RichLabel" type="RichTextLabel" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("1_t1qw4")
+theme_override_font_sizes/normal_font_size = 26
+text = "Bah alors on a pris la grosse tete ?"
+fit_content = true
+autowrap_mode = 0
+
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 75
