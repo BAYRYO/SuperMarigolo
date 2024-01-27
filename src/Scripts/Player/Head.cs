@@ -22,10 +22,10 @@ public partial class Head : Sprite2D
 	{
 		_timer.Stop();
 		TransitionScene transitionScene = new TransitionScene();
-		if (transitionScene.changeScene("res://Monsters/Goomba/Monster.tscn") == 0)
+		if (transitionScene.changeScene("res://Interfaces/GameOverMenu/Gameover.tscn") == 0)
 		{
-			GetTree().ChangeSceneToFile("res://Monsters/Goomba/Monster.tscn");
 			transitionScene.getTransition().PlayBackwards("dissolve");
+			GetTree().ChangeSceneToFile("res://Interfaces/GameOverMenu/Gameover.tscn");
 		}
 		
 	}
