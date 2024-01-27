@@ -5,17 +5,17 @@ using SuperMarigolo.Scripts.PatternState;
 public partial class Player : CharacterBody2D
 {
 	private String _current_state_name;
-	private State _current_state;
+	private State _current_state = new DefaultState();
 
 	public DefaultState DefaultState = new DefaultState();
 	public GiantState GiantState = new GiantState();
 	public StarState StarState = new StarState();
 	
 	private float Speed = 300.0f;
-	private float JumpVelocity = -400.0f;
+	private float JumpVelocity = -20.0f;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
-	private float _gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+	private float _gravity = 1000f;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -28,10 +28,8 @@ public partial class Player : CharacterBody2D
 
 		// Handle Jump.
 		if (Input.IsActionJustPressed("jump") && IsOnFloor())
-			velocity.Y = JumpVelocity;
+			velocity.Y = JumpVelocity*1.7f;
 
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("move_left", "move_right", "jump", "move_down");
 		if (direction != Vector2.Zero)
 		{
