@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmjr4l246jyjv"]
+[gd_scene load_steps=17 format=3 uid="uid://dmjr4l246jyjv"]
 
 [ext_resource type="Texture2D" uid="uid://qwby5e7olpc" path="res://ressources/Background/Sans titre 41_20240126223017.png" id="1_jc2v3"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="3_m5b5r"]
 [ext_resource type="Texture2D" uid="uid://dvoqay706alsi" path="res://ressources/Ground/Ground.png" id="3_yacsw"]
 [ext_resource type="Texture2D" uid="uid://bjmthmj0jvit0" path="res://ressources/Background/Sun.png" id="4_filin"]
+[ext_resource type="Script" path="res://Scripts/GiantState/Area2D.cs" id="4_rvr8o"]
 [ext_resource type="Texture2D" uid="uid://rdjeodfbclo6" path="res://ressources/Player/Body.png" id="5_4yuoh"]
+[ext_resource type="Texture2D" uid="uid://cjoxfctpu3wt8" path="res://ressources/icon.svg" id="5_s6ppp"]
 [ext_resource type="Texture2D" uid="uid://fxf7vv17m35o" path="res://ressources/Player/Head.png" id="6_lilnc"]
+[ext_resource type="Script" path="res://Scripts/Player/Head.cs" id="9_4neh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tr8l"]
 texture = ExtResource("3_yacsw")
@@ -20,8 +23,72 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_2tr8l")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_q70dq"]
+radius = 127.004
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6njyk"]
 size = Vector2(24.6667, 36.6667)
+
+[sub_resource type="Animation" id="Animation_k5cqr"]
+resource_name = "biggerHead"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.03, 0.03), Vector2(0.7, 0.7), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 30)]
+}
+
+[sub_resource type="Animation" id="Animation_u5msx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.03, 0.03)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mcjsu"]
+_data = {
+"RESET": SubResource("Animation_u5msx"),
+"biggerHead": SubResource("Animation_k5cqr")
+}
 
 [node name="FirstLevel" type="Control"]
 layout_mode = 3
@@ -61,6 +128,19 @@ position = Vector2(1686, -194)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_filin")
 
+[node name="Area2D" type="Area2D" parent="Graphic"]
+position = Vector2(-948, -17)
+script = ExtResource("4_rvr8o")
+metadata/_edit_group_ = true
+
+[node name="TestGiant" type="Sprite2D" parent="Graphic/Area2D"]
+position = Vector2(857, 289)
+texture = ExtResource("5_s6ppp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphic/Area2D"]
+position = Vector2(855, 292)
+shape = SubResource("CircleShape2D_q70dq")
+
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-738, 570)
 scale = Vector2(3, 3)
@@ -87,4 +167,15 @@ metadata/_edit_group_ = true
 position = Vector2(2.66669, -2.66663)
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("6_lilnc")
+script = ExtResource("9_4neh3")
 metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Head"]
+libraries = {
+"": SubResource("AnimationLibrary_mcjsu")
+}
+
+[node name="Timer" type="Timer" parent="Player/Head"]
+
+[connection signal="body_entered" from="Graphic/Area2D" to="Graphic/Area2D" method="_on_body_entered"]
+[connection signal="timeout" from="Player/Head/Timer" to="Player/Head" method="_on_timer_timeout"]
