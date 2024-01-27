@@ -10,7 +10,7 @@ public partial class Area2D : Godot.Area2D
 	public override void _Ready()
 	{
 		_player = GetNode<Player>("../../Player");
-		_characterHead = GetNode<AnimationPlayer>("../../Player/AnimationPlayer");
+		_characterHead = GetNode<AnimationPlayer>("../../Player/Head/AnimationPlayer");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
