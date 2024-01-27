@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7ndc32m8raka"]
+[gd_scene load_steps=13 format=3 uid="uid://b7ndc32m8raka"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_vfjtd"]
 [ext_resource type="Texture2D" uid="uid://7wahs1wtd1w5" path="res://ressources/Player/mario-frame-3.png" id="2_337r5"]
 [ext_resource type="Texture2D" uid="uid://dx4wvdndwa8e8" path="res://ressources/Player/mario-frame-2.png" id="3_6xntr"]
 [ext_resource type="Texture2D" uid="uid://04pfywxjb76b" path="res://ressources/Player/mario-frame-1.png" id="4_7lec0"]
 [ext_resource type="Texture2D" uid="uid://fxf7vv17m35o" path="res://ressources/Player/Head.png" id="5_a3cgx"]
+[ext_resource type="AudioStream" uid="uid://c7q4ee1y1665f" path="res://ressources/Super Mario Bros SFX/saut.wav" id="6_uumcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5n11s"]
 size = Vector2(42, 40.2746)
@@ -160,6 +161,30 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../MoveH:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("..:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_8sbct"]
 resource_name = "moveRight"
@@ -261,10 +286,87 @@ tracks/7/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../MoveH:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("..:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7j8s2"]
+resource_name = "jump"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../MoveH:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../MoveH/Jump:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../MoveH/JumpSFX:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ad6p8"]
 _data = {
 "RESET": SubResource("Animation_y3ktq"),
+"jump": SubResource("Animation_7j8s2"),
 "moveLeft": SubResource("Animation_3owht"),
 "moveRight": SubResource("Animation_8sbct")
 }
@@ -278,24 +380,34 @@ script = ExtResource("1_vfjtd")
 position = Vector2(-0.0669403, -0.137282)
 shape = SubResource("RectangleShape2D_5n11s")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-root_node = NodePath("../Head")
-libraries = {
-"": SubResource("AnimationLibrary_ad6p8")
-}
+[node name="MoveV" type="CanvasGroup" parent="Player"]
 
-[node name="BodyFirstFrame" type="Sprite2D" parent="Player"]
-visible = false
-texture = ExtResource("2_337r5")
-
-[node name="BodySecondFrame" type="Sprite2D" parent="Player"]
-texture = ExtResource("3_6xntr")
-
-[node name="BodyThirdFrame" type="Sprite2D" parent="Player"]
-visible = false
-texture = ExtResource("4_7lec0")
-
-[node name="Head" type="Sprite2D" parent="Player"]
+[node name="Head" type="Sprite2D" parent="Player/MoveV"]
 position = Vector2(-27, -171)
 texture = ExtResource("5_a3cgx")
 flip_h = true
+
+[node name="BodyThirdFrame" type="Sprite2D" parent="Player/MoveV"]
+visible = false
+texture = ExtResource("4_7lec0")
+
+[node name="BodySecondFrame" type="Sprite2D" parent="Player/MoveV"]
+texture = ExtResource("3_6xntr")
+
+[node name="BodyFirstFrame" type="Sprite2D" parent="Player/MoveV"]
+visible = false
+texture = ExtResource("2_337r5")
+
+[node name="MoveH" type="CanvasGroup" parent="Player"]
+visible = false
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="Player/MoveH"]
+stream = ExtResource("6_uumcq")
+
+[node name="Jump" type="Sprite2D" parent="Player/MoveH"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+root_node = NodePath("../MoveV/Head")
+libraries = {
+"": SubResource("AnimationLibrary_ad6p8")
+}
