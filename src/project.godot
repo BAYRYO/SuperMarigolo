@@ -19,6 +19,7 @@ config/icon="res://ressources/icon.svg"
 [autoload]
 
 TransitionScene="*res://TransitionScene/TransitionScene.tscn"
+BackgroundMusic="*res://BackgroundMusic/BackgroundMusic.tscn"
 
 [display]
 

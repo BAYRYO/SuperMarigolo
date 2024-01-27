@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bu0ud56vnjo7"
+path="res://.godot/imported/game-over.wav-10d48c198b1da75e600857df5d3c86cf.sample"
+
+[deps]
+
+source_file="res://ressources/Super Mario Bros SFX/game-over.wav"
+dest_files=["res://.godot/imported/game-over.wav-10d48c198b1da75e600857df5d3c86cf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

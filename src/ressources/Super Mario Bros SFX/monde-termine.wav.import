@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6g2o1fd32oh3"
+path="res://.godot/imported/monde-termine.wav-a47eb5cac9d6faf966739fad42b867f2.sample"
+
+[deps]
+
+source_file="res://ressources/Super Mario Bros SFX/monde-termine.wav"
+dest_files=["res://.godot/imported/monde-termine.wav-a47eb5cac9d6faf966739fad42b867f2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
