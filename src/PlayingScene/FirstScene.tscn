@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dmjr4l246jyjv"]
+[gd_scene load_steps=27 format=3 uid="uid://dmjr4l246jyjv"]
 
 [ext_resource type="Texture2D" uid="uid://qwby5e7olpc" path="res://ressources/Background/Sans titre 41_20240126223017.png" id="1_jc2v3"]
 [ext_resource type="Script" path="res://Scripts/PlayingScene/FirstLevel.cs" id="1_n4uqk"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://7wahs1wtd1w5" path="res://ressources/Player/mario-frame-3.png" id="10_owctv"]
 [ext_resource type="Texture2D" uid="uid://fxf7vv17m35o" path="res://ressources/Player/Head.png" id="11_mw7a4"]
 [ext_resource type="AudioStream" uid="uid://c7q4ee1y1665f" path="res://ressources/Super Mario Bros SFX/saut.wav" id="13_w2fur"]
+[ext_resource type="Texture2D" uid="uid://d0p1a2rtcqav6" path="res://ressources/Blocks/Gift.png" id="14_aueaq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tr8l"]
 texture = ExtResource("3_yacsw")
@@ -191,6 +192,9 @@ _data = {
 "jump": SubResource("Animation_7j8s2")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rx57"]
+size = Vector2(87.5, 88)
+
 [node name="FirstLevel" type="Control" groups=["Transition"]]
 layout_mode = 3
 anchors_preset = 15
@@ -260,6 +264,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_filin")
 
 [node name="Area2D" type="Area2D" parent="Graphic"]
+visible = false
 position = Vector2(-810, 13)
 script = ExtResource("4_rvr8o")
 metadata/_edit_group_ = true
@@ -287,6 +292,7 @@ visible = false
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="Player/MoveH"]
 stream = ExtResource("13_w2fur")
+volume_db = -10.576
 
 [node name="Jump" type="Sprite2D" parent="Player/MoveH"]
 
@@ -317,6 +323,19 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_ad6p8")
 }
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.01
+gravity_scale = 0.0
+
+[node name="Gift" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-289, 387)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("14_aueaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-287.75, 398)
+shape = SubResource("RectangleShape2D_6rx57")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
