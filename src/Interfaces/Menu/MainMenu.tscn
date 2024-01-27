@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=3 uid="uid://crygejdydhqkx"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu/PlayButton.cs" id="1_vr1ks"]
+[ext_resource type="FontFile" uid="uid://b7pbbr2eev21u" path="res://ressources/fonts/SuperMario256.ttf" id="1_wsdmv"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/OptionsButton.cs" id="2_d5jqi"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/ExitButton.cs" id="3_eg33n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88hq4"]
+content_margin_top = 15.0
+draw_center = false
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6aet"]
+content_margin_top = 15.0
+bg_color = Color(0.356863, 0.666667, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnlmu"]
+bg_color = Color(0.321569, 0.568627, 0.768627, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mao3"]
+content_margin_top = 15.0
+bg_color = Color(0.52549, 0.792157, 0.992157, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_bn3v0"]
+Button/styles/focus = SubResource("StyleBoxFlat_88hq4")
+Button/styles/hover = SubResource("StyleBoxFlat_b6aet")
+Button/styles/normal = SubResource("StyleBoxFlat_fnlmu")
+Button/styles/pressed = SubResource("StyleBoxFlat_7mao3")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hs5ng"]
+
+[node name="Node" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.760784, 0.94902, 0.929412, 1)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/CenterContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1100, 600)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_wsdmv")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[color=deepskyblue]S[color=gold]U[color=crimson]P[color=mediumseagreen]E[color=gold]R[color=mediumseagreen] M[color=gold]A[color=deepskyblue]R[color=mediumseagreen]I[color=deepskyblue]G[color=gold]O[color=crimson]L[color=mediumseagreen]O"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_bn3v0")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_wsdmv")
+theme_override_font_sizes/font_size = 50
+text = "PLAY"
+script = ExtResource("1_vr1ks")
+
+[node name="OptionsButton" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_bn3v0")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_wsdmv")
+theme_override_font_sizes/font_size = 50
+text = "OPTIONS"
+script = ExtResource("2_d5jqi")
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_bn3v0")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_wsdmv")
+theme_override_font_sizes/font_size = 50
+text = "EXIT"
+script = ExtResource("3_eg33n")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_hs5ng")
+expand_mode = 3
+stretch_mode = 1
+
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/PlayButton" method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/OptionsButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/OptionsButton" method="_on_options_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/ExitButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/ExitButton" method="_on_pressed"]
