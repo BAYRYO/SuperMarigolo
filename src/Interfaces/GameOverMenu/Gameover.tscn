@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://brutk2h5n7i6e"]
+[gd_scene load_steps=6 format=3 uid="uid://brutk2h5n7i6e"]
 
 [ext_resource type="FontFile" uid="uid://b7pbbr2eev21u" path="res://ressources/fonts/SuperMario256.ttf" id="1_t1qw4"]
+[ext_resource type="Script" path="res://Scripts/GameOverMenu/GameOverSound.cs" id="1_yj0e3"]
 [ext_resource type="Script" path="res://Scripts/GameOverMenu/QuitButton.cs" id="2_1xkl0"]
 [ext_resource type="Script" path="res://Scripts/GameOverMenu/RetryButton.cs" id="3_edq65"]
+[ext_resource type="AudioStream" uid="uid://bu0ud56vnjo7" path="res://ressources/Super Mario Bros SFX/game-over.wav" id="5_rerk2"]
 
 [node name="GameOverMenu" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_yj0e3")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -80,6 +83,10 @@ theme_override_fonts/font = ExtResource("1_t1qw4")
 theme_override_font_sizes/font_size = 50
 text = "QUITTER"
 script = ExtResource("2_1xkl0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("5_rerk2")
+bus = &"Music"
 
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/RetryButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/RetryButton" method="_on_retry_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" method="_on_pressed"]
