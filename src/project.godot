@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 config/icon="res://ressources/icon.svg"
 
+[autoload]
+
+TransitionScene="*res://TransitionScene/TransitionScene.tscn"
+
 [display]
 
 window/size/mode=3
