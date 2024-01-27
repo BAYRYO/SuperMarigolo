@@ -20,7 +20,9 @@ public partial class Head : Sprite2D
 	public void _on_timer_timeout()
 	{
 		_timer.Stop();
+		TransitionScene transitionScene = new TransitionScene();
+		transitionScene.changeScene("res://Monsters/Goomba/Monster.tscn");
 		GD.Print("Timer stopped");
-		GetTree().Quit();
+		
 	}
 }
