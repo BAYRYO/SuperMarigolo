@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/MainMenu/OptionsButton.cs" id="2_d5jqi"]
 [ext_resource type="Script" path="res://Scripts/MainMenu/ExitButton.cs" id="3_eg33n"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88hq4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5io5v"]
 content_margin_top = 15.0
 draw_center = false
 border_width_left = 8
@@ -18,7 +18,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6aet"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w27n7"]
 content_margin_top = 15.0
 bg_color = Color(0.356863, 0.666667, 1, 1)
 border_width_left = 5
@@ -31,7 +31,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnlmu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0w40"]
 bg_color = Color(0.321569, 0.568627, 0.768627, 1)
 border_width_left = 5
 border_width_top = 5
@@ -43,7 +43,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mao3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1m64"]
 content_margin_top = 15.0
 bg_color = Color(0.52549, 0.792157, 0.992157, 1)
 border_width_left = 5
@@ -57,10 +57,10 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="Theme" id="Theme_bn3v0"]
-Button/styles/focus = SubResource("StyleBoxFlat_88hq4")
-Button/styles/hover = SubResource("StyleBoxFlat_b6aet")
-Button/styles/normal = SubResource("StyleBoxFlat_fnlmu")
-Button/styles/pressed = SubResource("StyleBoxFlat_7mao3")
+Button/styles/focus = SubResource("StyleBoxFlat_5io5v")
+Button/styles/hover = SubResource("StyleBoxFlat_w27n7")
+Button/styles/normal = SubResource("StyleBoxFlat_d0w40")
+Button/styles/pressed = SubResource("StyleBoxFlat_w1m64")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hs5ng"]
 

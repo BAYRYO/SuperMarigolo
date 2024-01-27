@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://brutk2h5n7i6e"]
+
+[ext_resource type="FontFile" uid="uid://b7pbbr2eev21u" path="res://ressources/fonts/SuperMario256.ttf" id="1_t1qw4"]
+[ext_resource type="Script" path="res://Scripts/GameOverMenu/QuitButton.cs" id="2_1xkl0"]
+[ext_resource type="Script" path="res://Scripts/GameOverMenu/RetryButton.cs" id="3_edq65"]
+
+[node name="GameOverMenu" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/CenterContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_t1qw4")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_t1qw4")
+theme_override_font_sizes/font_size = 50
+text = "REJOUER"
+script = ExtResource("3_edq65")
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_t1qw4")
+theme_override_font_sizes/font_size = 50
+text = "QUITTER"
+script = ExtResource("2_1xkl0")
+
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/RetryButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/RetryButton" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" method="_on_pressed"]
