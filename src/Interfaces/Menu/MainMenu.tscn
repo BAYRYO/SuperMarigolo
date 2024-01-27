@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://b7pbbr2eev21u" path="res://ressources/fonts/SuperMario256.ttf" id="1_wsdmv"]
 [ext_resource type="Script" path="res://Scripts/MainMenu/OptionsButton.cs" id="2_d5jqi"]
 [ext_resource type="Script" path="res://Scripts/MainMenu/ExitButton.cs" id="3_eg33n"]
+[ext_resource type="Texture2D" uid="uid://cv7fcd0duvkuc" path="res://ressources/Player/Head-cut.png" id="5_fdlw4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5io5v"]
 content_margin_top = 15.0
@@ -62,8 +63,6 @@ Button/styles/hover = SubResource("StyleBoxFlat_w27n7")
 Button/styles/normal = SubResource("StyleBoxFlat_d0w40")
 Button/styles/pressed = SubResource("StyleBoxFlat_w1m64")
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hs5ng"]
-
 [node name="Node" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -72,6 +71,8 @@ Button/styles/pressed = SubResource("StyleBoxFlat_w1m64")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.760784, 0.94902, 0.929412, 1)
@@ -158,9 +159,9 @@ script = ExtResource("3_eg33n")
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer"]
 clip_contents = true
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_hs5ng")
+texture = ExtResource("5_fdlw4")
 expand_mode = 3
-stretch_mode = 1
+flip_h = true
 
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/PlayButton" method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/OptionsButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/OptionsButton" method="_on_options_button_pressed"]
