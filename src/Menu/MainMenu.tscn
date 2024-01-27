@@ -95,5 +95,6 @@ texture = SubResource("PlaceholderTexture2D_hs5ng")
 expand_mode = 2
 stretch_mode = 1
 
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/PlayButton" method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/OptionsButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/OptionsButton" method="_on_options_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/ExitButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/ExitButton" method="_on_pressed"]

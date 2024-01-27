@@ -2,15 +2,15 @@ using Godot;
 
 namespace SuperMarigolo.Scripts.MainMenu;
 
-public partial class PlayButton : Node
+public partial class PlayButton : Button
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+    private void _on_start_button_pressed()
+    {
+        if (GetTree().ChangeSceneToFile("res://FirstScene.tscn") != Error.Ok)
+            GD.PrintErr("Failed to change scene to FirstScene.tscn");
+        else
+        {
+            GetTree().ChangeSceneToFile("res://FirstScene.tscn");
+        }
+    }
 }
