@@ -14,7 +14,7 @@ public partial class Head : Sprite2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public static void startTimer()
 	{
-		_timer.Start(8.5f);
+		_timer.Start(7f);
 		GD.Print("Timer started");
 	}
 	
@@ -27,8 +27,6 @@ public partial class Head : Sprite2D
 			GetTree().ChangeSceneToFile("res://Monsters/Goomba/Monster.tscn");
 			transitionScene.getTransition().PlayBackwards("dissolve");
 		}
-		
-		GD.Print("Timer stopped");
 		
 	}
 }

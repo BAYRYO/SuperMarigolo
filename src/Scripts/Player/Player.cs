@@ -20,7 +20,7 @@ public partial class Player : CharacterBody2D
 
 	public override void _Ready()
 	{
-		_characterHead = GetNode<AnimationPlayer>("Head/AnimationPlayer");
+		_characterHead = GetNode<AnimationPlayer>("MoveV/Head/AnimationPlayer");
 	}
 
 	public override void _PhysicsProcess(double delta)
