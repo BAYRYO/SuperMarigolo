@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://wg3nvehsxu37"]
+[gd_scene load_steps=3 format=3 uid="uid://wg3nvehsxu37"]
+
+[ext_resource type="Script" path="res://Scripts/Koopa/Koopa.cs" id="1_rdjsl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yo4t"]
 size = Vector2(42, 40)
@@ -6,6 +8,8 @@ size = Vector2(42, 40)
 [node name="Koopa" type="Node2D"]
 
 [node name="Koopa" type="CharacterBody2D" parent="."]
+script = ExtResource("1_rdjsl")
+metadata/x = 6.485
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Koopa"]
 position = Vector2(-0.0669403, -0.274563)
