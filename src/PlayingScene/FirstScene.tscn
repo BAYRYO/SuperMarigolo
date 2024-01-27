@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dmjr4l246jyjv"]
+[gd_scene load_steps=16 format=3 uid="uid://dmjr4l246jyjv"]
 
 [ext_resource type="Texture2D" uid="uid://qwby5e7olpc" path="res://ressources/Background/Sans titre 41_20240126223017.png" id="1_jc2v3"]
 [ext_resource type="Script" path="res://Scripts/PlayingScene/FirstLevel.cs" id="1_n4uqk"]
@@ -6,9 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dvoqay706alsi" path="res://ressources/Ground/Ground.png" id="3_yacsw"]
 [ext_resource type="Texture2D" uid="uid://bjmthmj0jvit0" path="res://ressources/Background/Sun.png" id="4_filin"]
 [ext_resource type="Script" path="res://Scripts/GiantState/Area2D.cs" id="4_rvr8o"]
-[ext_resource type="Texture2D" uid="uid://rdjeodfbclo6" path="res://ressources/Player/Body.png" id="5_4yuoh"]
 [ext_resource type="Texture2D" uid="uid://cjoxfctpu3wt8" path="res://ressources/icon.svg" id="5_s6ppp"]
-[ext_resource type="Texture2D" uid="uid://fxf7vv17m35o" path="res://ressources/Player/Head.png" id="6_lilnc"]
 [ext_resource type="Script" path="res://Scripts/Player/Head.cs" id="9_4neh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tr8l"]
@@ -159,16 +157,14 @@ offset = Vector2(300, -300)
 zoom = Vector2(1, 1.1)
 drag_left_margin = 0.35
 
-[node name="Body" type="Sprite2D" parent="Player"]
+[node name="Body" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(2.66669, -2.66663)
 scale = Vector2(0.03, 0.03)
-texture = ExtResource("5_4yuoh")
 metadata/_edit_group_ = true
 
-[node name="Head" type="Sprite2D" parent="Player"]
+[node name="Head" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(2.66669, -2.66663)
 scale = Vector2(0.03, 0.03)
-texture = ExtResource("6_lilnc")
 script = ExtResource("9_4neh3")
 metadata/_edit_group_ = true
 
