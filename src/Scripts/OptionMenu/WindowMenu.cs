@@ -34,6 +34,30 @@ public partial class WindowMenu : OptionButton
         OptionButtonDisabled(true);
     }
 
+    private void OptionButtonDisabled(bool value)
+    {
+        GetNode<OptionButton>("../../../MarginContainer3/VBoxContainer/ResolutionMenu").Disabled = value;
+    }
+
+    private void _on_item_selected(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                Fullscreen();
+                break;
+            case 1:
+                Maximized();
+                break;
+            case 2:
+                Windowed();
+                break;
+            default:
+                GD.PrintErr("Invalid fullscreen index");
+                break;
+        }
+    }
+
     private void ConfigureWindowedMode()
     {
         Select(2);
@@ -56,30 +80,6 @@ public partial class WindowMenu : OptionButton
                 break;
             default:
                 GD.PrintErr("Invalid window mode");
-                break;
-        }
-    }
-
-    private void OptionButtonDisabled(bool value)
-    {
-        GetParent().GetNode<OptionButton>("ResolutionMenu").Disabled = value;
-    }
-
-    private void _on_item_selected(int index)
-    {
-        switch (index)
-        {
-            case 0:
-                Fullscreen();
-                break;
-            case 1:
-                Maximized();
-                break;
-            case 2:
-                Windowed();
-                break;
-            default:
-                GD.PrintErr("Invalid fullscreen index");
                 break;
         }
     }

@@ -1,0 +1,236 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfp6bfoq8gay0"]
+
+[ext_resource type="FontFile" uid="uid://b7pbbr2eev21u" path="res://ressources/fonts/SuperMario256.ttf" id="1_ixl3p"]
+[ext_resource type="Script" path="res://Scripts/OptionMenu/WindowMenu.cs" id="1_k5ytt"]
+[ext_resource type="Script" path="res://Scripts/OptionMenu/ResolutionMenu.cs" id="2_ageqj"]
+[ext_resource type="Script" path="res://Scripts/OptionMenu/VolumeSlideBar.cs" id="3_y803m"]
+[ext_resource type="Script" path="res://Scripts/OptionMenu/ReturnButton.cs" id="4_bqsd2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roc1j"]
+content_margin_top = 15.0
+draw_center = false
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yj54c"]
+content_margin_top = 15.0
+bg_color = Color(0.356863, 0.666667, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkqme"]
+bg_color = Color(0.321569, 0.568627, 0.768627, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssv6p"]
+content_margin_top = 15.0
+bg_color = Color(0.52549, 0.792157, 0.992157, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_y4n4y"]
+Button/styles/focus = SubResource("StyleBoxFlat_roc1j")
+Button/styles/hover = SubResource("StyleBoxFlat_yj54c")
+Button/styles/normal = SubResource("StyleBoxFlat_bkqme")
+Button/styles/pressed = SubResource("StyleBoxFlat_ssv6p")
+
+[node name="OptionMenu" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.760784, 0.94902, 0.929412, 1)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/CenterContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_ixl3p")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[color=deepskyblue]S[color=gold]U[color=crimson]P[color=mediumseagreen]E[color=gold]R[color=mediumseagreen] M[color=gold]A[color=deepskyblue]R[color=mediumseagreen]I[color=deepskyblue]G[color=gold]O[color=crimson]L[color=mediumseagreen]O"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_ixl3p")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[color=deepskyblue]W[color=gold]I[color=crimson]N[color=mediumseagreen]D[color=gold]O[color=crimson]W [color=gold]M[color=deepskyblue]O[color=mediumseagreen]D[color=deepskyblue]E[color=gold]:"
+fit_content = true
+
+[node name="WindowMenu" type="OptionButton" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ixl3p")
+theme_override_font_sizes/font_size = 20
+item_count = 3
+selected = 0
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Maximized"
+popup/item_1/id = 1
+popup/item_2/text = "Windowed"
+popup/item_2/id = 2
+script = ExtResource("1_k5ytt")
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_ixl3p")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[color=deepskyblue]R[color=gold]E[color=crimson]S[color=mediumseagreen]O[color=gold]L[color=crimson]U[color=gold]T[color=deepskyblue]I[color=mediumseagreen]O[color=deepskyblue]N[color=gold]:"
+fit_content = true
+
+[node name="ResolutionMenu" type="OptionButton" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ixl3p")
+theme_override_font_sizes/font_size = 20
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 3
+popup/item_1/text = "1600x900"
+popup/item_1/id = 2
+popup/item_2/text = "1280x720"
+popup/item_2/id = 1
+script = ExtResource("2_ageqj")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_ixl3p")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[color=deepskyblue]V[color=gold]O[color=crimson]L[color=mediumseagreen]U[color=gold]M[color=crimson]E[color=gold]:"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="VolumeSlideBar" type="HSlider" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+script = ExtResource("3_y803m")
+
+[node name="VolumePourcent" type="Label" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReturnButton" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_y4n4y")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ixl3p")
+theme_override_font_sizes/font_size = 50
+text = "RETURN"
+script = ExtResource("4_bqsd2")
+
+[connection signal="item_selected" from="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer4/VBoxContainer/WindowMenu" to="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer4/VBoxContainer/WindowMenu" method="_on_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer3/VBoxContainer/ResolutionMenu" to="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer3/VBoxContainer/ResolutionMenu" method="_on_resolution_selected"]
+[connection signal="value_changed" from="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VolumeSlideBar" to="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VolumeSlideBar" method="_on_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ReturnButton" to="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ReturnButton" method="_on_pressed"]

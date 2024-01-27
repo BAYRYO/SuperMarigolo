@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2whtca5140ll"]
+
+[ext_resource type="Script" path="res://Scripts/CreditsScene/CreditsScene.cs" id="1_yh6sd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxo0m"]
+size = Vector2(42, 40)
+
+[sub_resource type="Animation" id="Animation_8xhpg"]
+resource_name = "reset"
+length = 3.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oa8r2"]
+_data = {
+"reset": SubResource("Animation_8xhpg")
+}
+
+[node name="CreditsScene" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CreditsScene" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yh6sd")
+
+[node name="Player" type="CharacterBody2D" parent="CanvasLayer/CreditsScene"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/CreditsScene/Player"]
+position = Vector2(-0.0669403, -0.274563)
+shape = SubResource("RectangleShape2D_lxo0m")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CreditsScene/Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/CreditsScene"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/CreditsScene/CenterContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1100, 600)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CreditsScene/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CreditsScene/CenterContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/CreditsScene/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+bbcode_enabled = true
+fit_content = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/CreditsScene/CenterContainer/PanelContainer/VBoxContainer/RichTextLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_oa8r2")
+}
