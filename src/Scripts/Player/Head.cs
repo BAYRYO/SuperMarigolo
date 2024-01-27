@@ -7,6 +7,7 @@ public partial class Head : Sprite2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		base._Ready();
 		_timer = GetNode<Timer>("Timer");
 	}
 
@@ -21,7 +22,12 @@ public partial class Head : Sprite2D
 	{
 		_timer.Stop();
 		TransitionScene transitionScene = new TransitionScene();
-		transitionScene.changeScene("res://Monsters/Goomba/Monster.tscn");
+		if (transitionScene.changeScene("res://Monsters/Goomba/Monster.tscn") == 0)
+		{
+			GetTree().ChangeSceneToFile("res://Monsters/Goomba/Monster.tscn");
+			transitionScene.getTransition().PlayBackwards("dissolve");
+		}
+		
 		GD.Print("Timer stopped");
 		
 	}

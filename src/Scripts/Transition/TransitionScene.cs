@@ -3,19 +3,33 @@ using System;
 
 public partial class TransitionScene : CanvasLayer
 {
-	private AnimationPlayer _transition;
+	private static AnimationPlayer _transition;
 
-	public override void _Ready()
-	{
+
+	public override void _Ready() {
 		_transition = GetNode<AnimationPlayer>("AnimationPlayer");
-		GD.Print(_transition);
 	}
 
-	public async void changeScene(String scenePath)
+	public int changeScene(String scenePath)
 	{
-		_transition.Play("dissolve");
-		await ToSignal(_transition, "animation_finished");
-		GetTree().ChangeSceneToFile(scenePath);
-		_transition.PlayBackwards("dissolve");
+		try
+		{
+			_transition.Play("dissolve");
+			//Success code
+			return 0;
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e);
+			return 1;
+		}
+		
+		
+		
+	}
+	
+	public AnimationPlayer getTransition()
+	{
+		return _transition;
 	}
 }

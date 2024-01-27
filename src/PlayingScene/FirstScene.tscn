@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmjr4l246jyjv"]
+[gd_scene load_steps=18 format=3 uid="uid://dmjr4l246jyjv"]
 
 [ext_resource type="Texture2D" uid="uid://qwby5e7olpc" path="res://ressources/Background/Sans titre 41_20240126223017.png" id="1_jc2v3"]
+[ext_resource type="Script" path="res://Scripts/PlayingScene/FirstLevel.cs" id="1_n4uqk"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="3_m5b5r"]
 [ext_resource type="Texture2D" uid="uid://dvoqay706alsi" path="res://ressources/Ground/Ground.png" id="3_yacsw"]
 [ext_resource type="Texture2D" uid="uid://bjmthmj0jvit0" path="res://ressources/Background/Sun.png" id="4_filin"]
@@ -90,7 +91,7 @@ _data = {
 "biggerHead": SubResource("Animation_k5cqr")
 }
 
-[node name="FirstLevel" type="Control"]
+[node name="FirstLevel" type="Control" groups=["Transition"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,6 +99,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+script = ExtResource("1_n4uqk")
 
 [node name="Graphic" type="Node2D" parent="."]
 position = Vector2(-106, 174)
@@ -129,7 +131,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_filin")
 
 [node name="Area2D" type="Area2D" parent="Graphic"]
-position = Vector2(-948, -17)
+position = Vector2(322, -168)
 script = ExtResource("4_rvr8o")
 metadata/_edit_group_ = true
 
@@ -177,5 +179,7 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="Player/Head"]
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="body_entered" from="Graphic/Area2D" to="Graphic/Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="Player/Head/Timer" to="Player/Head" method="_on_timer_timeout"]
