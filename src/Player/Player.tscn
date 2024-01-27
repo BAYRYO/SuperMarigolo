@@ -382,11 +382,6 @@ shape = SubResource("RectangleShape2D_5n11s")
 
 [node name="MoveV" type="CanvasGroup" parent="Player"]
 
-[node name="Head" type="Sprite2D" parent="Player/MoveV"]
-position = Vector2(-27, -171)
-texture = ExtResource("5_a3cgx")
-flip_h = true
-
 [node name="BodyThirdFrame" type="Sprite2D" parent="Player/MoveV"]
 visible = false
 texture = ExtResource("4_7lec0")
@@ -397,6 +392,11 @@ texture = ExtResource("3_6xntr")
 [node name="BodyFirstFrame" type="Sprite2D" parent="Player/MoveV"]
 visible = false
 texture = ExtResource("2_337r5")
+
+[node name="Head" type="Sprite2D" parent="Player/MoveV"]
+position = Vector2(-27, -171)
+texture = ExtResource("5_a3cgx")
+flip_h = true
 
 [node name="MoveH" type="CanvasGroup" parent="Player"]
 visible = false
