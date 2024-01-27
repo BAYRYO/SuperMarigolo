@@ -19,7 +19,6 @@ public partial class Player : CharacterBody2D
 
 	private AnimatedSprite2D _bodyAnimated;
 	private Sprite2D _head;
-	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	private float _gravity = 1000f;
 	
 	private AudioStreamPlayer2D _jumpSFX; 
@@ -29,7 +28,6 @@ public partial class Player : CharacterBody2D
 		_characterBody = GetNode<AnimationPlayer>("AnimationPlayer");
 		_bodyAnimated = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_head = GetNode<Sprite2D>("Head");
-		_jumpSFX = GetNode<AudioStreamPlayer2D>("MoveH/JumpSFX");
 	}
 
 	public override void _PhysicsProcess(double delta)

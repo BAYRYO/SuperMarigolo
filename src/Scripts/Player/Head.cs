@@ -14,7 +14,7 @@ public partial class Head : Sprite2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public static void startTimer()
 	{
-		_timer.Start(7f);
+		_timer.Start(6);
 		GD.Print("Timer started");
 	}
 	
