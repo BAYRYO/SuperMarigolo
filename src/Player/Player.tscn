@@ -3,15 +3,16 @@
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_vfjtd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5n11s"]
-size = Vector2(42, 45.2746)
+size = Vector2(42, 40.2746)
 
 [node name="Player" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_vfjtd")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-0.0669403, 2.36272)
+position = Vector2(-0.0669403, -0.137282)
 shape = SubResource("RectangleShape2D_5n11s")
 
 [node name="ColorRect" type="ColorRect" parent="Player"]
