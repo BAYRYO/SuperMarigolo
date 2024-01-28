@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dmjr4l246jyjv"]
+[gd_scene load_steps=54 format=3 uid="uid://dmjr4l246jyjv"]
 
 [ext_resource type="Texture2D" uid="uid://qwby5e7olpc" path="res://ressources/Background/Sans titre 41_20240126223017.png" id="1_jc2v3"]
 [ext_resource type="Script" path="res://Scripts/PlayingScene/FirstLevel.cs" id="1_n4uqk"]
@@ -10,11 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://wd1b0xembvxq" path="res://ressources/Monsters/RicardMan.png" id="8_38807"]
 [ext_resource type="Script" path="res://Scripts/Player/Head.cs" id="9_4neh3"]
 [ext_resource type="Script" path="res://Scripts/GiftBloc/GiftBloc.cs" id="9_w348e"]
-[ext_resource type="Texture2D" uid="uid://y2xp6odb5qnj" path="res://ressources/Player/0.png" id="10_0hx55"]
-[ext_resource type="Texture2D" uid="uid://cnxjkd62lkqaf" path="res://ressources/Player/1.png" id="11_33knu"]
+[ext_resource type="Texture2D" path="res://ressources/Player/0.png" id="10_0hx55"]
+[ext_resource type="Texture2D" path="res://ressources/Player/1.png" id="11_33knu"]
 [ext_resource type="Texture2D" uid="uid://fxf7vv17m35o" path="res://ressources/Player/Head.png" id="11_mw7a4"]
-[ext_resource type="Texture2D" uid="uid://djsm0806ktpkc" path="res://ressources/Player/4.png" id="12_kcr00"]
+[ext_resource type="Texture2D" path="res://ressources/Player/4.png" id="12_kcr00"]
 [ext_resource type="AudioStream" uid="uid://c7q4ee1y1665f" path="res://ressources/Super Mario Bros SFX/saut.wav" id="13_w2fur"]
+[ext_resource type="Script" path="res://Scripts/KillMonster/KillMonster.cs" id="14_mha2m"]
 [ext_resource type="PackedScene" uid="uid://wg3nvehsxu37" path="res://Monsters/Koopa/Koopa.tscn" id="14_stxde"]
 [ext_resource type="PackedScene" uid="uid://kgfpwtmokfrq" path="res://Monsters/Goomba/Monster.tscn" id="15_x5fl7"]
 [ext_resource type="Script" path="res://Scripts/Fall/Falling.cs" id="15_x7p04"]
@@ -43,54 +44,6 @@ size = Vector2(386, 272)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5o1af"]
 size = Vector2(186, 151)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3yhr"]
-size = Vector2(1389, 965)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1bmo"]
-size = Vector2(1249, 232.5)
-
-[sub_resource type="Animation" id="Animation_y0ifk"]
-resource_name = "spawn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-310, 450), Vector2(-310, 380)]
-}
-
-[sub_resource type="Animation" id="Animation_m1mpv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-310, 380)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_56ocv"]
-_data = {
-"RESET": SubResource("Animation_m1mpv"),
-"spawn": SubResource("Animation_y0ifk")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb2jy"]
-size = Vector2(89, 89)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eo8f3"]
-size = Vector2(91, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpp1o"]
 radius = 400.0
@@ -408,6 +361,102 @@ _data = {
 "Tchomp": SubResource("Animation_sm0dg")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57diy"]
+size = Vector2(1389, 965)
+
+[sub_resource type="Animation" id="Animation_t41v5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.5, 91.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KillingArea/Kill:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15.5, -507.75)]
+}
+
+[sub_resource type="Animation" id="Animation_rxowr"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7.5, 91.5), Vector2(7.5, -1500)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KillingArea/Kill:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(15.5, -507.75), Vector2(15.5, -2100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m4604"]
+_data = {
+"RESET": SubResource("Animation_t41v5"),
+"spawn": SubResource("Animation_rxowr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru3mk"]
+size = Vector2(1249, 232.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rx57"]
+size = Vector2(87.5, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b70pq"]
+size = Vector2(87.5, 20)
+
 [node name="FirstLevel" type="Control" groups=["Transition"]]
 layout_mode = 3
 anchors_preset = 15
@@ -520,49 +569,6 @@ position = Vector2(-2471.18, -604.651)
 position = Vector2(-2474, -497.5)
 shape = SubResource("RectangleShape2D_5o1af")
 
-[node name="RicardMan" type="CharacterBody2D" parent="."]
-position = Vector2(-310, 380)
-scale = Vector2(0.05, 0.05)
-script = ExtResource("7_nak1y")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="RicardMan"]
-texture = ExtResource("8_38807")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RicardMan"]
-position = Vector2(7.5, 91.5)
-shape = SubResource("RectangleShape2D_q3yhr")
-
-[node name="Kill" type="CollisionShape2D" parent="RicardMan"]
-position = Vector2(15.5, -507.75)
-shape = SubResource("RectangleShape2D_x1bmo")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RicardMan"]
-libraries = {
-"": SubResource("AnimationLibrary_56ocv")
-}
-
-[node name="GiftBlock" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("9_w348e")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="GiftBlock"]
-position = Vector2(-316, 447)
-gravity_scale = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GiftBlock/RigidBody2D"]
-position = Vector2(2, 11)
-shape = SubResource("RectangleShape2D_yb2jy")
-
-[node name="Sprite2D" type="Sprite2D" parent="GiftBlock/RigidBody2D"]
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("7_s6yiu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GiftBlock"]
-position = Vector2(-313, 514)
-shape = SubResource("RectangleShape2D_eo8f3")
-
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-682.258, 708.089)
 scale = Vector2(0.1, 0.1)
@@ -658,9 +664,58 @@ libraries = {
 "": SubResource("AnimationLibrary_a8mt7")
 }
 
+[node name="RicardMan" type="CharacterBody2D" parent="."]
+position = Vector2(-288, 395)
+scale = Vector2(0.05, 0.05)
+script = ExtResource("7_nak1y")
+
+[node name="Sprite2D" type="Sprite2D" parent="RicardMan"]
+texture = ExtResource("8_38807")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RicardMan"]
+position = Vector2(7.5, 91.5)
+shape = SubResource("RectangleShape2D_57diy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RicardMan"]
+libraries = {
+"": SubResource("AnimationLibrary_m4604")
+}
+
+[node name="KillingArea" type="Area2D" parent="RicardMan"]
+position = Vector2(60, 0)
+script = ExtResource("14_mha2m")
+
+[node name="Kill" type="CollisionShape2D" parent="RicardMan/KillingArea"]
+position = Vector2(15.5, -507.75)
+shape = SubResource("RectangleShape2D_ru3mk")
+
+[node name="GiftBloc" type="Area2D" parent="."]
+position = Vector2(1, 0)
+script = ExtResource("9_w348e")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="GiftBloc"]
+collision_mask = 2
+mass = 0.01
+gravity_scale = 0.0
+
+[node name="Gift" type="Sprite2D" parent="GiftBloc/RigidBody2D"]
+position = Vector2(-289, 387)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("7_s6yiu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GiftBloc/RigidBody2D"]
+position = Vector2(-287.75, 398)
+shape = SubResource("RectangleShape2D_6rx57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GiftBloc"]
+position = Vector2(-287, 456)
+shape = SubResource("RectangleShape2D_b70pq")
+
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="timeout" from="Player/Head/Timer" to="Player/Head" method="_on_timer_timeout"]
 [connection signal="body_entered" from="TrapRocket" to="TrapRocket" method="_on_body_entered"]
 [connection signal="body_entered" from="Fall" to="Fall" method="_on_body_entered"]
 [connection signal="body_entered" from="Tchomp" to="Tchomp" method="_on_body_entered"]
+[connection signal="body_entered" from="RicardMan/KillingArea" to="RicardMan/KillingArea" method="_on_body_entered"]
+[connection signal="body_entered" from="GiftBloc" to="GiftBloc" method="_on_body_entered"]
