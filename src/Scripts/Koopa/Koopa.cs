@@ -3,7 +3,7 @@ using System;
 
 public partial class Koopa : CharacterBody2D
 {
-	public const float Speed = 300.0f;
+	public const float Speed = 150.0f;
 	public const float JumpVelocity = -400.0f;
 
 	private float LastPosition;
