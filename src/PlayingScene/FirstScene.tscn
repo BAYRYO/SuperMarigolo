@@ -820,7 +820,7 @@ position = Vector2(-290, 454)
 shape = SubResource("RectangleShape2D_b70pq")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player", "dead"]]
-position = Vector2(2777, 662)
+position = Vector2(-821, 697)
 scale = Vector2(0.1, 0.1)
 script = ExtResource("3_m5b5r")
 
