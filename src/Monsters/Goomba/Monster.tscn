@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://kgfpwtmokfrq"]
+[gd_scene load_steps=5 format=3 uid="uid://kgfpwtmokfrq"]
 
 [ext_resource type="Script" path="res://Scripts/Goomba/Goomba.cs" id="1_icpb4"]
+[ext_resource type="Texture2D" uid="uid://trhq73v0nkpf" path="res://ressources/Monsters/poop.png" id="2_rwgt0"]
+[ext_resource type="AudioStream" uid="uid://d761hxl576jy" path="res://ressources/MonstersSongs/fart.wav" id="3_lrl0j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ole0k"]
-size = Vector2(42, 40)
+size = Vector2(117, 108)
 
 [node name="Monster" type="Node2D"]
 
@@ -25,5 +27,13 @@ grow_vertical = 2
 color = Color(0.266667, 0.168627, 0.0156863, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goomba"]
-position = Vector2(-0.0669403, -0.274563)
+position = Vector2(-1.5, -18)
 shape = SubResource("RectangleShape2D_ole0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Goomba"]
+position = Vector2(-1, -27)
+scale = Vector2(0.0892859, 0.0935456)
+texture = ExtResource("2_rwgt0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Goomba"]
+stream = ExtResource("3_lrl0j")
