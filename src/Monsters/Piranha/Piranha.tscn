@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://co2nut46nt6vt"]
+[gd_scene load_steps=9 format=3 uid="uid://co2nut46nt6vt"]
 
 [ext_resource type="Script" path="res://Scripts/Piranha/Piranha.cs" id="1_lbgik"]
 [ext_resource type="Texture2D" uid="uid://diqb12mcdq64m" path="res://ressources/Monsters/pira.png" id="2_5ndp4"]
+[ext_resource type="Script" path="res://Scripts/DeathByMonster/DeathArea.cs" id="3_crkl3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtb30"]
 size = Vector2(77.0669, 122.725)
@@ -44,6 +45,9 @@ _data = {
 "RESET": SubResource("Animation_ks1qp")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwwoy"]
+size = Vector2(91, 138)
+
 [node name="Piranha" type="Node2D"]
 
 [node name="Piranha" type="CharacterBody2D" parent="."]
@@ -62,3 +66,12 @@ libraries = {
 position = Vector2(7, -37)
 scale = Vector2(2.08, 2.08)
 texture = ExtResource("2_5ndp4")
+
+[node name="Area2D" type="Area2D" parent="Piranha"]
+script = ExtResource("3_crkl3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piranha/Area2D"]
+position = Vector2(12.5, -42)
+shape = SubResource("RectangleShape2D_iwwoy")
+
+[connection signal="body_entered" from="Piranha/Area2D" to="Piranha/Area2D" method="_on_body_entered"]

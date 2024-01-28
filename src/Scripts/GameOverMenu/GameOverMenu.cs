@@ -11,7 +11,7 @@ public partial class GameOverMenu : Node
 		"Bah alors on a pris la grosse tete ?",
 		"Tchou Tchou !",
 		"AAAAAAAAAAAAAAAAAAAAAAAAAAH !",
-		"je suis bien emmerde",
+		"Vous avez perdu !",
 	};
 	public override void _Ready()
 	{

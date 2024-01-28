@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://wg3nvehsxu37"]
+[gd_scene load_steps=9 format=3 uid="uid://wg3nvehsxu37"]
 
 [ext_resource type="Script" path="res://Scripts/Koopa/Koopa.cs" id="1_rdjsl"]
 [ext_resource type="Texture2D" uid="uid://bugd7igkxqvgk" path="res://ressources/Monsters/Koopa.png" id="2_tgp4q"]
+[ext_resource type="Script" path="res://Scripts/DeathByMonster/DeathArea.cs" id="3_seqk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yo4t"]
 size = Vector2(42, 40)
@@ -44,6 +45,9 @@ _data = {
 "RESET": SubResource("Animation_y3sxk")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfboy"]
+size = Vector2(95.5, 79)
+
 [node name="Koopa" type="Node2D"]
 
 [node name="Koopa" type="CharacterBody2D" parent="."]
@@ -63,3 +67,12 @@ texture = ExtResource("2_tgp4q")
 libraries = {
 "": SubResource("AnimationLibrary_1y63s")
 }
+
+[node name="Area2D" type="Area2D" parent="Koopa"]
+script = ExtResource("3_seqk6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Koopa/Area2D"]
+position = Vector2(-7.25, -10)
+shape = SubResource("RectangleShape2D_qfboy")
+
+[connection signal="body_entered" from="Koopa/Area2D" to="Koopa/Area2D" method="_on_body_entered"]
