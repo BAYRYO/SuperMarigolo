@@ -1,0 +1,279 @@
+[gd_scene load_steps=15 format=3 uid="uid://dl05i6xfdy8rx"]
+
+[ext_resource type="Script" path="res://EndingScene/EndingScene.cs" id="1_6wxnn"]
+[ext_resource type="Texture2D" uid="uid://cff5wkpdbiv5j" path="res://ressources/Decoration/backgorund-bedroom.jpg" id="1_vs32r"]
+[ext_resource type="Texture2D" uid="uid://7wahs1wtd1w5" path="res://ressources/Player/mario-frame-3.png" id="2_y67qk"]
+[ext_resource type="Texture2D" uid="uid://cv7fcd0duvkuc" path="res://ressources/Player/Head-cut.png" id="3_is0dm"]
+[ext_resource type="Texture2D" uid="uid://bsfkp7n1r8dsh" path="res://ressources/Monsters/bowsinette-body.png" id="4_wd8hy"]
+[ext_resource type="Texture2D" uid="uid://b3gshttc17e3v" path="res://ressources/Monsters/bowsinette-head-normal.png" id="5_m5b4c"]
+[ext_resource type="FontFile" uid="uid://b7pbbr2eev21u" path="res://ressources/fonts/SuperMario256.ttf" id="6_swaps"]
+[ext_resource type="Texture2D" uid="uid://cip4arorbquy1" path="res://ressources/Monsters/bowsinette-shy.png" id="7_0nqpf"]
+[ext_resource type="Texture2D" uid="uid://t8ihnlmcnr37" path="res://ressources/Monsters/bowsinette-embrasse.png" id="8_2g51a"]
+[ext_resource type="Script" path="res://EndingScene/AnimationPlayer.cs" id="10_idbxk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7cel"]
+bg_color = Color(1, 0.293028, 0.533668, 1)
+
+[sub_resource type="Animation" id="Animation_lll14"]
+resource_name = "Ending_scene"
+length = 33.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15, 20, 25, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["BOWSER : MWAHAHAHA ! TU ARRIVES TROP TARD, MARIO !", "BOWSER : TU ne pourras plus sauver Peach, elle m'appartient desormais !", "BOWSER : Que cherches-tu desormais ?", "MARIO : Ce que je cherche, c'est ton coeur Bowsinette.", "BOWSER : Hein... heu.. Quoi?", "MARIO : Je n'ai voulu que ton coeur, embrasse moi !", ""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 4.5, 5, 6, 9.5, 10, 11, 14.5, 15, 16, 19.5, 20, 21, 24.5, 25, 26, 29.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bowsinette/Bowsinette-head-normal:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bowsinette/Bowsinette-shy:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 20, 30),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bowsinette/Bowsinette-embrasse:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bowsinette/Bowsinette-embrasse:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(30, 33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-48.8508, -27.3032), Vector2(-126.851, -31.3032)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bowsinette/Bowsinette-body:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(30, 33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.05197, -0.742584), Vector2(-81.8508, -3.30316)]
+}
+
+[sub_resource type="Animation" id="Animation_7kcvo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bowsinette/Bowsinette-head-normal:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bowsinette/Bowsinette-shy:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bowsinette/Bowsinette-embrasse:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bowsinette/Bowsinette-embrasse:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-48.8508, -27.3032)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bowsinette/Bowsinette-body:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.05197, -0.742584)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yvfcs"]
+_data = {
+"Ending_scene": SubResource("Animation_lll14"),
+"RESET": SubResource("Animation_7kcvo")
+}
+
+[node name="EndingScene" type="Node"]
+script = ExtResource("1_6wxnn")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12239.0
+offset_top = -4319.0
+offset_right = 4894.0
+offset_bottom = 2888.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o7cel")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(566, 443)
+texture = ExtResource("1_vs32r")
+
+[node name="Camera2D" type="Camera2D" parent="Background"]
+position = Vector2(-0.187683, -21.1428)
+zoom = Vector2(2, 2)
+
+[node name="Mario" type="CanvasGroup" parent="."]
+position = Vector2(351.009, 544.49)
+
+[node name="Mario-frame-3" type="Sprite2D" parent="Mario"]
+position = Vector2(0.0491371, 0.181185)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_y67qk")
+flip_h = true
+
+[node name="Head-cut" type="Sprite2D" parent="Mario"]
+position = Vector2(1, -102)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_is0dm")
+
+[node name="Bowsinette" type="CanvasGroup" parent="."]
+position = Vector2(745.851, 482.303)
+
+[node name="Bowsinette-body" type="Sprite2D" parent="Bowsinette"]
+position = Vector2(1.05197, -0.742584)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_wd8hy")
+
+[node name="Bowsinette-head-normal" type="Sprite2D" parent="Bowsinette"]
+position = Vector2(4.14917, -2.30322)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_m5b4c")
+
+[node name="Bowsinette-shy" type="Sprite2D" parent="Bowsinette"]
+visible = false
+position = Vector2(3.14917, -4.30316)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_0nqpf")
+
+[node name="Bowsinette-embrasse" type="Sprite2D" parent="Bowsinette"]
+position = Vector2(-48.8508, -27.3032)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_2g51a")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 204.0
+offset_top = 189.0
+offset_right = 928.0
+offset_bottom = 229.0
+theme_override_fonts/font = ExtResource("6_swaps")
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yvfcs")
+}
+script = ExtResource("10_idbxk")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]

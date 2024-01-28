@@ -25,10 +25,15 @@ public partial class Player : CharacterBody2D
 	private AudioStreamPlayer2D _jumpSFX; 
 	public override void _Ready()
 	{
+		GD.Print("Je suis dan sle rdy");
 		_characterHeadAnimation = GetNode<AnimationPlayer>("Head/AnimationPlayer");
+		GD.Print("1");
 		_characterBody = GetNode<AnimationPlayer>("AnimationPlayer");
+		GD.Print("2");
 		_bodyAnimated = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		GD.Print("3");
 		_head = GetNode<Sprite2D>("Head");
+		GD.Print("4");
 	}
 
 	public override void _PhysicsProcess(double delta)
