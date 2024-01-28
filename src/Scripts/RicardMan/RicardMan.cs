@@ -28,10 +28,7 @@ public partial class RicardMan : CharacterBody2D
 
 	public override void _Ready()
 	{
-		foreach (var child in GetChildren())
-		{
-			GD.Print(child.GetType());
-		}
+		canMove = false;
 	}
 
 	public override void _Process(double delta)

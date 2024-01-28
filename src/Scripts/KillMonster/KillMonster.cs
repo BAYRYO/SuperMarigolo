@@ -7,6 +7,7 @@ public partial class KillMonster : Area2D
 	public override void _Ready()
 	{
 		_character = GetNode<CharacterBody2D>("../../RicardMan");
+		_character.Visible = true;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,9 +15,11 @@ public partial class KillMonster : Area2D
 	{
 	}
 
-	public void _on_body_entered(CharacterBody2D characterBody2D)
+	public void _on_body_entered(Node body)
 	{
-		GD.Print("Je suis tombé dessus");
-		_character.Visible = false;
+		if (body.IsInGroup("player"))
+		{
+			_character.Visible = false;
+		}
 	}
 }
