@@ -24,7 +24,7 @@ public partial class Koopa : CharacterBody2D
 
 	public override void _Process(double delta)
 	{
-		_characterBody.Play("Koopa");
+		//_characterBody.Play("Koopa");
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.

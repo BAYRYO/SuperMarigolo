@@ -15,6 +15,6 @@ public partial class EndGame : Area2D
 	
 	public void _on_body_entered(CharacterBody2D characterBody2D)
 	{
-		GetTree().Quit();
+		GetTree().ChangeSceneToFile("res://PlayingScene/EndingScene.tscn");
 	}
 }

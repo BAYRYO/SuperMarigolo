@@ -1,15 +1,34 @@
-[gd_scene load_steps=15 format=3 uid="uid://dl05i6xfdy8rx"]
+[gd_scene load_steps=15 format=3 uid="uid://bi6kx7ghv3w55"]
 
-[ext_resource type="Script" path="res://PlayingScene/EndingScene.cs" id="1_6wxnn"]
-[ext_resource type="Texture2D" uid="uid://cbtgcdyg8upwh" path="res://ressources/Decoration/backgorund-bedroom.jpg" id="1_vs32r"]
+[ext_resource type="Texture2D" uid="uid://cff5wkpdbiv5j" path="res://ressources/Decoration/backgorund-bedroom.jpg" id="1_vs32r"]
 [ext_resource type="Texture2D" uid="uid://7wahs1wtd1w5" path="res://ressources/Player/mario-frame-3.png" id="2_y67qk"]
 [ext_resource type="Texture2D" uid="uid://cv7fcd0duvkuc" path="res://ressources/Player/Head-cut.png" id="3_is0dm"]
-[ext_resource type="Texture2D" uid="uid://bh71xbiwyxl2k" path="res://ressources/Monsters/bowsinette-body.png" id="4_wd8hy"]
-[ext_resource type="Texture2D" uid="uid://d2mjquene6ied" path="res://ressources/Monsters/bowsinette-head-normal.png" id="5_m5b4c"]
+[ext_resource type="Texture2D" uid="uid://bsfkp7n1r8dsh" path="res://ressources/Monsters/bowsinette-body.png" id="4_wd8hy"]
+[ext_resource type="Texture2D" uid="uid://b3gshttc17e3v" path="res://ressources/Monsters/bowsinette-head-normal.png" id="5_m5b4c"]
 [ext_resource type="FontFile" uid="uid://b7pbbr2eev21u" path="res://ressources/fonts/SuperMario256.ttf" id="6_swaps"]
-[ext_resource type="Texture2D" uid="uid://rgpjlkky7rfw" path="res://ressources/Monsters/bowsinette-shy.png" id="7_0nqpf"]
-[ext_resource type="Texture2D" uid="uid://ds5uecnd4pul8" path="res://ressources/Monsters/bowsinette-embrasse.png" id="8_2g51a"]
-[ext_resource type="Script" path="res://PlayingScene/AnimationPlayer.cs" id="10_idbxk"]
+[ext_resource type="Texture2D" uid="uid://cip4arorbquy1" path="res://ressources/Monsters/bowsinette-shy.png" id="7_0nqpf"]
+[ext_resource type="Texture2D" uid="uid://t8ihnlmcnr37" path="res://ressources/Monsters/bowsinette-embrasse.png" id="8_2g51a"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_xt2dk"]
+script/source = "using Godot;
+using System;
+
+public partial class EndingScene : Node
+{
+	private AnimationPlayer _anime;
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+		_anime = GetNode<AnimationPlayer>(\"AnimationPlayer\");
+		_anime.Play(\"Ending_scene\");
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7cel"]
 bg_color = Color(1, 0.293028, 0.533668, 1)
@@ -195,8 +214,21 @@ _data = {
 "RESET": SubResource("Animation_7kcvo")
 }
 
+[sub_resource type="CSharpScript" id="CSharpScript_cy48s"]
+script/source = "using Godot;
+using System;
+
+public partial class AnimationPlayer : Godot.AnimationPlayer
+{
+	public void _on_animation_finished(String anime)
+	{
+		GetTree().ChangeSceneToFile(\"res://Interfaces/Credits/CreditsScene.tscn\");
+	}
+}
+"
+
 [node name="EndingScene" type="Node"]
-script = ExtResource("1_6wxnn")
+script = SubResource("CSharpScript_xt2dk")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
@@ -273,6 +305,6 @@ visible_ratio = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_yvfcs")
 }
-script = ExtResource("10_idbxk")
+script = SubResource("CSharpScript_cy48s")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://wg3nvehsxu37"]
 
 [ext_resource type="Script" path="res://Scripts/Koopa/Koopa.cs" id="1_rdjsl"]
-[ext_resource type="Texture2D" uid="uid://bugd7igkxqvgk" path="res://ressources/Monsters/Koopa.png" id="2_tgp4q"]
+[ext_resource type="Texture2D" path="res://ressources/Monsters/Koopa.png" id="2_tgp4q"]
 [ext_resource type="Script" path="res://Scripts/DeathByMonster/DeathArea.cs" id="3_seqk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yo4t"]
