@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dmjr4l246jyjv"]
+[gd_scene load_steps=30 format=3 uid="uid://dmjr4l246jyjv"]
 
 [ext_resource type="Texture2D" uid="uid://qwby5e7olpc" path="res://ressources/Background/Sans titre 41_20240126223017.png" id="1_jc2v3"]
 [ext_resource type="Script" path="res://Scripts/PlayingScene/FirstLevel.cs" id="1_n4uqk"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://c7q4ee1y1665f" path="res://ressources/Super Mario Bros SFX/saut.wav" id="13_w2fur"]
 [ext_resource type="PackedScene" uid="uid://wg3nvehsxu37" path="res://Monsters/Koopa/Koopa.tscn" id="14_stxde"]
 [ext_resource type="Script" path="res://Scripts/Fall/Falling.cs" id="15_x7p04"]
+[ext_resource type="Texture2D" uid="uid://cc4knflol8l65" path="res://ressources/Decoration/toilet-piranah.png" id="16_52pev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tr8l"]
 texture = ExtResource("3_yacsw")
@@ -198,6 +199,9 @@ _data = {
 a = Vector2(314.861, -18.5479)
 b = Vector2(-6.13867, -18.5479)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uxbc"]
+size = Vector2(386, 272)
+
 [node name="FirstLevel" type="Control" groups=["Transition"]]
 layout_mode = 3
 anchors_preset = 15
@@ -294,7 +298,7 @@ position = Vector2(855, 292)
 shape = SubResource("CircleShape2D_q70dq")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-683, 700)
+position = Vector2(-682.258, 708.089)
 scale = Vector2(0.1, 0.1)
 script = ExtResource("3_m5b5r")
 
@@ -348,6 +352,18 @@ script = ExtResource("15_x7p04")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fall"]
 position = Vector2(1345.14, 959.548)
 shape = SubResource("SegmentShape2D_ntjhp")
+
+[node name="Toilet" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet"]
+position = Vector2(2047.5, 697)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_5uxbc")
+
+[node name="Toilet-piranah" type="Sprite2D" parent="Toilet"]
+position = Vector2(2048, 589)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_52pev")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
