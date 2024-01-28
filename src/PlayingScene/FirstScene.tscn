@@ -25,10 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://co2nut46nt6vt" path="res://Monsters/Piranha/Piranha.tscn" id="16_g16d2"]
 [ext_resource type="PackedScene" uid="uid://d4lvlasbibc68" path="res://Monsters/Rocket/Rocket.tscn" id="18_60e1u"]
 [ext_resource type="Script" path="res://Scripts/TrapRocket/TrapRocket.cs" id="19_gdlit"]
+[ext_resource type="Script" path="res://Scripts/DeathByMonster/DeathAreaMush.cs" id="20_3amx0"]
 [ext_resource type="Script" path="res://Scripts/Tchomp/TrapTchomp.cs" id="21_5n1r3"]
 [ext_resource type="PackedScene" uid="uid://cntv8gj1usvi6" path="res://Monsters/Twomp/Twomp.tscn" id="22_t1v0i"]
 [ext_resource type="Script" path="res://Scripts/Quechua/EndGame.cs" id="27_s4udb"]
-[ext_resource type="Script" path="res://Scripts/DeathByMonster/DeathArea.cs" id="28_2cy0b"]
 [ext_resource type="Texture2D" uid="uid://5u20pqpq27p6" path="res://ressources/Decoration/Quechua.png" id="28_eiym2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uxbc"]
@@ -221,141 +221,6 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vj63o"]
 radius = 80.0
 height = 322.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpp1o"]
-radius = 400.0
-height = 1320.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6rssr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_0hx55")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_0hx55")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_33knu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_0hx55")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_kcr00")
-}],
-"loop": true,
-"name": &"move",
-"speed": 5.0
-}]
-
-[sub_resource type="Animation" id="Animation_ovpxf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_mki3x"]
-resource_name = "biggerHead"
-length = 7.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 50)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(10, 10)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pn04k"]
-_data = {
-"RESET": SubResource("Animation_ovpxf"),
-"biggerHead": SubResource("Animation_mki3x")
-}
-
-[sub_resource type="Animation" id="Animation_rcan5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MoveH/JumpSFX:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_7j8s2"]
-resource_name = "jump"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MoveH/JumpSFX:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ad6p8"]
-_data = {
-"RESET": SubResource("Animation_rcan5"),
-"jump": SubResource("Animation_7j8s2")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87jo5"]
 size = Vector2(25, 578)
@@ -552,7 +417,7 @@ _data = {
 size = Vector2(1140, 320.002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57diy"]
-size = Vector2(1389, 965)
+size = Vector2(2000, 1280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thu7l"]
 size = Vector2(1375, 975)
@@ -562,6 +427,141 @@ size = Vector2(87.5, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b70pq"]
 size = Vector2(87.5, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpp1o"]
+radius = 400.0
+height = 1320.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6rssr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_0hx55")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_0hx55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_33knu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0hx55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kcr00")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ovpxf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mki3x"]
+resource_name = "biggerHead"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(10, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pn04k"]
+_data = {
+"RESET": SubResource("Animation_ovpxf"),
+"biggerHead": SubResource("Animation_mki3x")
+}
+
+[sub_resource type="Animation" id="Animation_rcan5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoveH/JumpSFX:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7j8s2"]
+resource_name = "jump"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoveH/JumpSFX:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ad6p8"]
+_data = {
+"RESET": SubResource("Animation_rcan5"),
+"jump": SubResource("Animation_7j8s2")
+}
 
 [node name="FirstLevel" type="Control" groups=["Transition"]]
 layout_mode = 3
@@ -590,9 +590,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1141.0
+offset_left = -1137.0
 offset_top = -337.0
-offset_right = 1889.0
+offset_right = 1893.0
 offset_bottom = 1018.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -672,9 +672,6 @@ shape = SubResource("RectangleShape2D_5o1af")
 [node name="Koopa" parent="." instance=ExtResource("14_stxde")]
 position = Vector2(-999, 203)
 
-[node name="Monster" parent="." instance=ExtResource("15_x5fl7")]
-position = Vector2(845.655, 573.873)
-
 [node name="TrapRocket" type="Area2D" parent="."]
 position = Vector2(628, 320)
 script = ExtResource("19_gdlit")
@@ -729,54 +726,6 @@ texture = ExtResource("28_eiym2")
 position = Vector2(87, -89)
 shape = SubResource("CapsuleShape2D_vj63o")
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player", "dead"]]
-position = Vector2(-788, 697)
-scale = Vector2(0.1, 0.1)
-script = ExtResource("3_m5b5r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["dead"]]
-position = Vector2(49.9995, 10)
-scale = Vector2(0.999999, 0.999999)
-shape = SubResource("CapsuleShape2D_gpp1o")
-
-[node name="MoveH" type="CanvasGroup" parent="Player"]
-visible = false
-
-[node name="JumpSFX" type="AudioStreamPlayer2D" parent="Player/MoveH"]
-stream = ExtResource("13_w2fur")
-volume_db = -10.576
-
-[node name="Jump" type="Sprite2D" parent="Player/MoveH"]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-offset = Vector2(200, -120)
-zoom = Vector2(1.3, 1.1)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(-60, 9.99982)
-scale = Vector2(1, 1.09507)
-sprite_frames = SubResource("SpriteFrames_6rssr")
-flip_h = true
-
-[node name="Head" type="Sprite2D" parent="Player"]
-visible = false
-position = Vector2(-59.9998, 19.9999)
-texture = ExtResource("11_mw7a4")
-flip_h = true
-script = ExtResource("9_4neh3")
-
-[node name="Timer" type="Timer" parent="Player/Head"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Head"]
-libraries = {
-"": SubResource("AnimationLibrary_pn04k")
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-libraries = {
-"": SubResource("AnimationLibrary_ad6p8")
-}
-
 [node name="Flag" type="Area2D" parent="."]
 position = Vector2(4702, 487)
 script = ExtResource("4_xkh0o")
@@ -829,15 +778,16 @@ position = Vector2(-60, -2240)
 script = ExtResource("14_mha2m")
 metadata/_edit_group_ = true
 
-[node name="Kill" type="CollisionShape2D" parent="RicardMan/KillingArea"]
+[node name="Kill" type="CollisionShape2D" parent="RicardMan/KillingArea" groups=["player"]]
 position = Vector2(40, 60)
 shape = SubResource("RectangleShape2D_ru3mk")
 
 [node name="DeathArea" type="Area2D" parent="RicardMan" groups=["dead"]]
-script = ExtResource("28_2cy0b")
+script = ExtResource("20_3amx0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RicardMan/DeathArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RicardMan/DeathArea" groups=["bigHead"]]
 position = Vector2(7.5, 91.5)
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_57diy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RicardMan"]
@@ -866,14 +816,65 @@ shape = SubResource("RectangleShape2D_6rx57")
 position = Vector2(-287, 456)
 shape = SubResource("RectangleShape2D_b70pq")
 
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player", "dead"]]
+position = Vector2(-788, 697)
+scale = Vector2(0.1, 0.1)
+script = ExtResource("3_m5b5r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["dead", "player"]]
+position = Vector2(49.9995, 0)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("CapsuleShape2D_gpp1o")
+
+[node name="MoveH" type="CanvasGroup" parent="Player"]
+visible = false
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="Player/MoveH"]
+stream = ExtResource("13_w2fur")
+volume_db = -10.576
+
+[node name="Jump" type="Sprite2D" parent="Player/MoveH"]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(200, -120)
+zoom = Vector2(1.3, 1.1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-60, 9.99982)
+scale = Vector2(1, 1.09507)
+sprite_frames = SubResource("SpriteFrames_6rssr")
+flip_h = true
+
+[node name="Head" type="Sprite2D" parent="Player"]
+visible = false
+position = Vector2(-59.9998, 19.9999)
+texture = ExtResource("11_mw7a4")
+flip_h = true
+script = ExtResource("9_4neh3")
+
+[node name="Timer" type="Timer" parent="Player/Head"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Head"]
+libraries = {
+"": SubResource("AnimationLibrary_pn04k")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_ad6p8")
+}
+
+[node name="Monster" parent="." instance=ExtResource("15_x5fl7")]
+position = Vector2(879, 728)
+
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="body_entered" from="TrapRocket" to="TrapRocket" method="_on_body_entered"]
 [connection signal="body_entered" from="Fall" to="Fall" method="_on_body_entered"]
 [connection signal="body_entered" from="Tchomp" to="Tchomp" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="timeout" from="Player/Head/Timer" to="Player/Head" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Flag" to="Flag" method="_on_body_entered"]
 [connection signal="body_entered" from="RicardMan/KillingArea" to="RicardMan/KillingArea" method="_on_body_entered"]
 [connection signal="body_entered" from="RicardMan/DeathArea" to="RicardMan/DeathArea" method="_on_body_entered"]
 [connection signal="body_entered" from="GiftBloc" to="GiftBloc" method="_on_body_entered"]
+[connection signal="timeout" from="Player/Head/Timer" to="Player/Head" method="_on_timer_timeout"]
