@@ -1,22 +1,20 @@
 using Godot;
 using System;
 
-public partial class KillMonster : Area2D
+public partial class EndGame : Area2D
 {
-	private static CharacterBody2D _character;
+	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_character = GetNode<CharacterBody2D>("../../RicardMan");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
-
+	
 	public void _on_body_entered(CharacterBody2D characterBody2D)
 	{
-		GD.Print("Je suis tombé dessus");
-		_character.Visible = false;
+		GetTree().Quit();
 	}
 }
