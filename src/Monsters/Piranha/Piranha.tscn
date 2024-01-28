@@ -1,26 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://co2nut46nt6vt"]
+[gd_scene load_steps=7 format=3 uid="uid://co2nut46nt6vt"]
+
+[ext_resource type="Script" path="res://Scripts/Piranha/Piranha.cs" id="1_lbgik"]
+[ext_resource type="Texture2D" uid="uid://diqb12mcdq64m" path="res://ressources/Monsters/pira.png" id="2_5ndp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtb30"]
-size = Vector2(42, 40)
+size = Vector2(77.0669, 122.725)
+
+[sub_resource type="Animation" id="Animation_hei5m"]
+resource_name = "Piranha"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -150), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ks1qp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2kdsx"]
+_data = {
+"Piranha": SubResource("Animation_hei5m"),
+"RESET": SubResource("Animation_ks1qp")
+}
 
 [node name="Piranha" type="Node2D"]
 
 [node name="Piranha" type="CharacterBody2D" parent="."]
+script = ExtResource("1_lbgik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Piranha"]
-position = Vector2(-0.0669403, -0.274563)
+position = Vector2(17.4665, -41.6373)
 shape = SubResource("RectangleShape2D_mtb30")
 
-[node name="ColorRect" type="ColorRect" parent="Piranha"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.537255, 0.196078, 1)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Piranha"]
+libraries = {
+"": SubResource("AnimationLibrary_2kdsx")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Piranha"]
+position = Vector2(7, -37)
+scale = Vector2(2.08, 2.08)
+texture = ExtResource("2_5ndp4")

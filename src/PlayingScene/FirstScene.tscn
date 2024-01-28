@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dmjr4l246jyjv"]
+[gd_scene load_steps=33 format=3 uid="uid://dmjr4l246jyjv"]
 
 [ext_resource type="Texture2D" uid="uid://qwby5e7olpc" path="res://ressources/Background/Sans titre 41_20240126223017.png" id="1_jc2v3"]
 [ext_resource type="Script" path="res://Scripts/PlayingScene/FirstLevel.cs" id="1_n4uqk"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://wg3nvehsxu37" path="res://Monsters/Koopa/Koopa.tscn" id="14_stxde"]
 [ext_resource type="Script" path="res://Scripts/Fall/Falling.cs" id="15_x7p04"]
 [ext_resource type="Texture2D" uid="uid://cc4knflol8l65" path="res://ressources/Decoration/toilet-piranah.png" id="16_52pev"]
+[ext_resource type="PackedScene" uid="uid://kgfpwtmokfrq" path="res://Monsters/Goomba/Monster.tscn" id="17_66hai"]
+[ext_resource type="PackedScene" uid="uid://co2nut46nt6vt" path="res://Monsters/Piranha/Piranha.tscn" id="18_jrj4j"]
+[ext_resource type="Script" path="res://Scripts/Piranha/Piranha.cs" id="19_w8i5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tr8l"]
 texture = ExtResource("3_yacsw")
@@ -351,6 +354,10 @@ script = ExtResource("15_x7p04")
 position = Vector2(1345.14, 959.548)
 shape = SubResource("SegmentShape2D_ntjhp")
 
+[node name="Piranha" parent="." instance=ExtResource("18_jrj4j")]
+position = Vector2(2040, 721)
+script = ExtResource("19_w8i5i")
+
 [node name="Toilet" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet"]
@@ -362,6 +369,9 @@ shape = SubResource("RectangleShape2D_5uxbc")
 position = Vector2(2048, 589)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("16_52pev")
+
+[node name="Goomba" parent="." instance=ExtResource("17_66hai")]
+position = Vector2(841, 730)
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
