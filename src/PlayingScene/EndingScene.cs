@@ -5,7 +5,7 @@ public partial class EndingScene : Node
 {
 	private AnimationPlayer _anime;
 	// Called when the node enters the scene tree for the first time.
-	public void _on_tree_entered()
+	public override void _Ready()
 	{
 		_anime = GetNode<AnimationPlayer>("AnimationPlayer");
 		_anime.Play("Ending_scene");
