@@ -2,7 +2,7 @@ using Godot;
 using System;
 using SuperMarigolo.Scripts.PatternState;
 
-public partial class Area2D : Godot.Area2D
+public partial class BiggerHead : Godot.Area2D
 {
 	private Player _player;
 	private AnimationPlayer _characterHead;
