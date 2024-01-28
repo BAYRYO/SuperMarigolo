@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://brutk2h5n7i6e"]
+[gd_scene load_steps=7 format=3 uid="uid://brutk2h5n7i6e"]
 
+[ext_resource type="Script" path="res://Scripts/GameOverMenu/GameOverMenu.cs" id="1_7kv0u"]
 [ext_resource type="FontFile" uid="uid://b7pbbr2eev21u" path="res://ressources/fonts/SuperMario256.ttf" id="1_t1qw4"]
 [ext_resource type="Script" path="res://Scripts/GameOverMenu/GameOverSound.cs" id="1_yj0e3"]
 [ext_resource type="Script" path="res://Scripts/GameOverMenu/QuitButton.cs" id="2_1xkl0"]
@@ -7,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bu0ud56vnjo7" path="res://ressources/Super Mario Bros SFX/game-over.wav" id="5_rerk2"]
 
 [node name="GameOverMenu" type="Node"]
+script = ExtResource("1_7kv0u")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("1_yj0e3")
@@ -42,20 +44,26 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_t1qw4")
 theme_override_font_sizes/font_size = 100
 text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_t1qw4")
+theme_override_font_sizes/font_size = 35
+horizontal_alignment = 1
 
 [node name="RichLabel" type="RichTextLabel" parent="CanvasLayer/Control/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/normal_font = ExtResource("1_t1qw4")
 theme_override_font_sizes/normal_font_size = 26
-text = "Bah alors on a pris la grosse tete ?"
 fit_content = true
 autowrap_mode = 0
 
