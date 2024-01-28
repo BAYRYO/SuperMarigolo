@@ -20,7 +20,7 @@ public partial class Player : CharacterBody2D
 	private AnimatedSprite2D _bodyAnimated;
 	private Sprite2D _head;
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
-	private float _gravity = 100f;
+	private float _gravity =  ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	
 	private AudioStreamPlayer2D _jumpSFX; 
 	public override void _Ready()
@@ -39,9 +39,7 @@ public partial class Player : CharacterBody2D
 
 		// Add the gravity.
 		if (!IsOnFloor())
-		{
 			velocity.Y += _gravity * (float)delta;
-		}
 			
 
 		// Handle Jump.

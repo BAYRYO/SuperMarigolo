@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://crygejdydhqkx"]
+[gd_scene load_steps=12 format=3 uid="uid://crygejdydhqkx"]
 
+[ext_resource type="Script" path="res://Scripts/MainMenu/MainMenu.cs" id="1_fu83f"]
 [ext_resource type="Script" path="res://Scripts/MainMenu/PlayButton.cs" id="1_vr1ks"]
 [ext_resource type="FontFile" uid="uid://b7pbbr2eev21u" path="res://ressources/fonts/SuperMario256.ttf" id="1_wsdmv"]
 [ext_resource type="Script" path="res://Scripts/MainMenu/OptionsButton.cs" id="2_d5jqi"]
@@ -66,6 +67,7 @@ Button/styles/pressed = SubResource("StyleBoxFlat_w1m64")
 [node name="Node" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_fu83f")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15

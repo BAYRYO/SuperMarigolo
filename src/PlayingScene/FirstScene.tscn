@@ -32,8 +32,9 @@ sources/1 = SubResource("TileSetAtlasSource_2tr8l")
 [sub_resource type="CircleShape2D" id="CircleShape2D_q70dq"]
 radius = 127.004
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7arw"]
-size = Vector2(710.001, 1380)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpp1o"]
+radius = 400.0
+height = 1320.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6rssr"]
 animations = [{
@@ -298,9 +299,9 @@ scale = Vector2(0.1, 0.1)
 script = ExtResource("3_m5b5r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-15.0015, -129.999)
+position = Vector2(49.9995, 10)
 scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_l7arw")
+shape = SubResource("CapsuleShape2D_gpp1o")
 
 [node name="MoveH" type="CanvasGroup" parent="Player"]
 visible = false

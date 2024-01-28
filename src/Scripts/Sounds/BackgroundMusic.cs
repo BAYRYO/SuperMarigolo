@@ -1,15 +1,37 @@
 using Godot;
-using System;
 
-public partial class BackgroundMusic : AudioStreamPlayer
+namespace SuperMarigolo.Scripts.Sounds;
+
+public partial class BackgroundMusic : Node
 {
-	// Called when the node enters the scene tree for the first time.
+	private static AudioStreamPlayer _backgroundMusic;
+	private static float _seconds;
+
+	private const string PathMusic = "Music";
+
 	public override void _Ready()
 	{
+		_backgroundMusic = GetNode<AudioStreamPlayer>(PathMusic);
+		_backgroundMusic.Autoplay = true;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		_seconds = _backgroundMusic.GetPlaybackPosition();
+	}
+
+	public static void PlayMusic()
+	{
+		_backgroundMusic.Play(_seconds);
+	}
+		
+	public static void StopMusic()
+	{
+		_backgroundMusic.Stop();
+	}
+
+	private void _on_music_finished()
+	{
+		_backgroundMusic.Play();
 	}
 }

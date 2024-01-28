@@ -4,8 +4,10 @@
 [ext_resource type="Script" path="res://Scripts/Sounds/BackgroundMusic.cs" id="2_mwev4"]
 
 [node name="BackgroundMusic" type="Node"]
+script = ExtResource("2_mwev4")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_5qirh")
 bus = &"Music"
-script = ExtResource("2_mwev4")
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

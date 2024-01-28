@@ -4,7 +4,6 @@ using System;
 public partial class Goomba : CharacterBody2D
 {
 	public const float Speed = 150.0f;
-	public const float JumpVelocity = -400.0f;
 	private float _lastPosition;
 	private int _padding = 1; 
 
