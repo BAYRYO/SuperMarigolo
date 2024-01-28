@@ -461,6 +461,33 @@ size = Vector2(137.5, 82)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4g0rk"]
 size = Vector2(49, 464.5)
 
+[sub_resource type="Animation" id="Animation_dvlw2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4702, 487)]
+}
+
 [sub_resource type="Animation" id="Animation_og5i1"]
 resource_name = "fall"
 length = 1.5
@@ -487,33 +514,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(4702, 487), Vector2(4702, 750)]
-}
-
-[sub_resource type="Animation" id="Animation_dvlw2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4702, 487)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0m1ef"]
@@ -749,7 +749,7 @@ position = Vector2(87, -89)
 shape = SubResource("CapsuleShape2D_vj63o")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(5564, 693)
+position = Vector2(-788, 697)
 scale = Vector2(0.1, 0.1)
 script = ExtResource("3_m5b5r")
 
