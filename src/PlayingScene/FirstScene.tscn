@@ -148,22 +148,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../MoveH:visible")
+tracks/0/path = NodePath("MoveH/JumpSFX:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveH/JumpSFX:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -176,22 +164,10 @@ length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../MoveH:visible")
+tracks/0/path = NodePath("MoveH/JumpSFX:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveH/JumpSFX:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -202,6 +178,93 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_rcan5"),
 "jump": SubResource("Animation_7j8s2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57diy"]
+size = Vector2(1389, 965)
+
+[sub_resource type="Animation" id="Animation_t41v5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.5, 91.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KillingArea/Kill:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15.5, -507.75)]
+}
+
+[sub_resource type="Animation" id="Animation_rxowr"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7.5, 91.5), Vector2(7.5, -1500)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KillingArea/Kill:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(15.5, -507.75), Vector2(15.5, -2100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m4604"]
+_data = {
+"RESET": SubResource("Animation_t41v5"),
+"spawn": SubResource("Animation_rxowr")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_to2ud"]
@@ -525,6 +588,7 @@ visible = false
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="Player/MoveH"]
 stream = ExtResource("13_w2fur")
+volume_db = -10.576
 
 [node name="Jump" type="Sprite2D" parent="Player/MoveH"]
 
@@ -606,7 +670,6 @@ libraries = {
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
-[connection signal="body_entered" from="Graphic/Area2D" to="Graphic/Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="Player/Head/Timer" to="Player/Head" method="_on_timer_timeout"]
 [connection signal="body_entered" from="TrapRocket" to="TrapRocket" method="_on_body_entered"]
 [connection signal="body_entered" from="Fall" to="Fall" method="_on_body_entered"]

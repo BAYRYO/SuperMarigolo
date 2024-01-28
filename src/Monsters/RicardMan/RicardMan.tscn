@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://jbfed43sh710"]
+
+[ext_resource type="Script" path="res://Scripts/RicardMan/RicardMan.cs" id="1_pcbrc"]
+[ext_resource type="Texture2D" uid="uid://wd1b0xembvxq" path="res://ressources/Monsters/RicardMan.png" id="2_4rvfj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrdea"]
+size = Vector2(1389, 965)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hf0e"]
+size = Vector2(1249, 232.5)
+
+[node name="RicardMan" type="Node2D"]
+
+[node name="RicardMan" type="CharacterBody2D" parent="."]
+script = ExtResource("1_pcbrc")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RicardMan"]
+texture = ExtResource("2_4rvfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RicardMan"]
+position = Vector2(7.5, 91.5)
+shape = SubResource("RectangleShape2D_xrdea")
+
+[node name="Kill" type="CollisionShape2D" parent="RicardMan"]
+position = Vector2(15.5, -507.75)
+shape = SubResource("RectangleShape2D_6hf0e")
