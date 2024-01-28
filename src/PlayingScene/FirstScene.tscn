@@ -1,13 +1,15 @@
-[gd_scene load_steps=45 format=3 uid="uid://dmjr4l246jyjv"]
+[gd_scene load_steps=53 format=3 uid="uid://dmjr4l246jyjv"]
 
 [ext_resource type="Texture2D" uid="uid://qwby5e7olpc" path="res://ressources/Background/Sans titre 41_20240126223017.png" id="1_jc2v3"]
 [ext_resource type="Script" path="res://Scripts/PlayingScene/FirstLevel.cs" id="1_n4uqk"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="3_m5b5r"]
 [ext_resource type="Texture2D" uid="uid://dvoqay706alsi" path="res://ressources/Ground/Ground.png" id="3_yacsw"]
 [ext_resource type="Texture2D" uid="uid://bjmthmj0jvit0" path="res://ressources/Background/Sun.png" id="4_filin"]
-[ext_resource type="Script" path="res://Scripts/GiantState/Area2D.cs" id="4_rvr8o"]
-[ext_resource type="Texture2D" uid="uid://cjoxfctpu3wt8" path="res://ressources/icon.svg" id="5_s6ppp"]
+[ext_resource type="Script" path="res://Scripts/RicardMan/RicardMan.cs" id="7_nak1y"]
+[ext_resource type="Texture2D" uid="uid://d0p1a2rtcqav6" path="res://ressources/Blocks/Gift.png" id="7_s6yiu"]
+[ext_resource type="Texture2D" uid="uid://wd1b0xembvxq" path="res://ressources/Monsters/RicardMan.png" id="8_38807"]
 [ext_resource type="Script" path="res://Scripts/Player/Head.cs" id="9_4neh3"]
+[ext_resource type="Script" path="res://Scripts/GiftBloc/GiftBloc.cs" id="9_w348e"]
 [ext_resource type="Texture2D" uid="uid://y2xp6odb5qnj" path="res://ressources/Player/0.png" id="10_0hx55"]
 [ext_resource type="Texture2D" uid="uid://cnxjkd62lkqaf" path="res://ressources/Player/1.png" id="11_33knu"]
 [ext_resource type="Texture2D" uid="uid://fxf7vv17m35o" path="res://ressources/Player/Head.png" id="11_mw7a4"]
@@ -36,14 +38,59 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_2tr8l")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q70dq"]
-radius = 127.004
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uxbc"]
 size = Vector2(386, 272)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5o1af"]
 size = Vector2(186, 151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3yhr"]
+size = Vector2(1389, 965)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1bmo"]
+size = Vector2(1249, 232.5)
+
+[sub_resource type="Animation" id="Animation_y0ifk"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-310, 450), Vector2(-310, 380)]
+}
+
+[sub_resource type="Animation" id="Animation_m1mpv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-310, 380)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_56ocv"]
+_data = {
+"RESET": SubResource("Animation_m1mpv"),
+"spawn": SubResource("Animation_y0ifk")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb2jy"]
+size = Vector2(89, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eo8f3"]
+size = Vector2(91, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpp1o"]
 radius = 400.0
@@ -178,93 +225,6 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_rcan5"),
 "jump": SubResource("Animation_7j8s2")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_57diy"]
-size = Vector2(1389, 965)
-
-[sub_resource type="Animation" id="Animation_t41v5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(7.5, 91.5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("KillingArea/Kill:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(15.5, -507.75)]
-}
-
-[sub_resource type="Animation" id="Animation_rxowr"]
-resource_name = "spawn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -1600)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(7.5, 91.5), Vector2(7.5, -1500)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("KillingArea/Kill:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(15.5, -507.75), Vector2(15.5, -2100)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m4604"]
-_data = {
-"RESET": SubResource("Animation_t41v5"),
-"spawn": SubResource("Animation_rxowr")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_to2ud"]
@@ -530,19 +490,6 @@ position = Vector2(1686, -194)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_filin")
 
-[node name="Area2D" type="Area2D" parent="Graphic"]
-position = Vector2(-810, 13)
-script = ExtResource("4_rvr8o")
-metadata/_edit_group_ = true
-
-[node name="TestGiant" type="Sprite2D" parent="Graphic/Area2D"]
-position = Vector2(857, 289)
-texture = ExtResource("5_s6ppp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphic/Area2D"]
-position = Vector2(855, 292)
-shape = SubResource("CircleShape2D_q70dq")
-
 [node name="Toilet" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet"]
@@ -572,6 +519,49 @@ position = Vector2(-2471.18, -604.651)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet2"]
 position = Vector2(-2474, -497.5)
 shape = SubResource("RectangleShape2D_5o1af")
+
+[node name="RicardMan" type="CharacterBody2D" parent="."]
+position = Vector2(-310, 380)
+scale = Vector2(0.05, 0.05)
+script = ExtResource("7_nak1y")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RicardMan"]
+texture = ExtResource("8_38807")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RicardMan"]
+position = Vector2(7.5, 91.5)
+shape = SubResource("RectangleShape2D_q3yhr")
+
+[node name="Kill" type="CollisionShape2D" parent="RicardMan"]
+position = Vector2(15.5, -507.75)
+shape = SubResource("RectangleShape2D_x1bmo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RicardMan"]
+libraries = {
+"": SubResource("AnimationLibrary_56ocv")
+}
+
+[node name="GiftBlock" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_w348e")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="GiftBlock"]
+position = Vector2(-316, 447)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GiftBlock/RigidBody2D"]
+position = Vector2(2, 11)
+shape = SubResource("RectangleShape2D_yb2jy")
+
+[node name="Sprite2D" type="Sprite2D" parent="GiftBlock/RigidBody2D"]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("7_s6yiu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GiftBlock"]
+position = Vector2(-313, 514)
+shape = SubResource("RectangleShape2D_eo8f3")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-682.258, 708.089)
