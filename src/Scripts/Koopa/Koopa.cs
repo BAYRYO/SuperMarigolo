@@ -9,11 +9,13 @@ public partial class Koopa : CharacterBody2D
 	private float LastPosition;
 	private float currentPosition;
 	private int _padding =1;
+	private AnimationPlayer _characterBody;
 
 	public override void _Ready()
 	{
 		base._Ready();
 		LastPosition = GlobalPosition.X;
+		_characterBody = GetNode<AnimationPlayer>("AnimationPlayer");
 	}
 
 	
@@ -22,6 +24,7 @@ public partial class Koopa : CharacterBody2D
 
 	public override void _Process(double delta)
 	{
+		_characterBody.Play("Koopa");
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.

@@ -642,7 +642,16 @@ position = Vector2(-2474, -497.5)
 shape = SubResource("RectangleShape2D_5o1af")
 
 [node name="Koopa" parent="." instance=ExtResource("14_stxde")]
-position = Vector2(-999, 203)
+position = Vector2(-882, 233)
+
+[node name="Koopa2" parent="." instance=ExtResource("14_stxde")]
+position = Vector2(-558, 50)
+
+[node name="Koopa3" parent="." instance=ExtResource("14_stxde")]
+position = Vector2(-52, 401)
+
+[node name="Koopa4" parent="." instance=ExtResource("14_stxde")]
+position = Vector2(-457, 380)
 
 [node name="Monster" parent="." instance=ExtResource("15_x5fl7")]
 position = Vector2(845.655, 573.873)
@@ -711,7 +720,6 @@ script = ExtResource("14_mha2m")
 
 [node name="Kill" type="CollisionShape2D" parent="RicardMan/KillingArea"]
 position = Vector2(15.5, -507.75)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ru3mk")
 
 [node name="GiftBloc" type="Area2D" parent="."]
