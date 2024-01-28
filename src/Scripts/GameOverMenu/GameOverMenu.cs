@@ -9,8 +9,8 @@ public partial class GameOverMenu : Node
 	private readonly string[] _text =
 	{
 		"Bah alors on a pris la grosse tete ?",
-		"text2",
-		"text3",
+		"Tchou Tchou !",
+		"AAAAAAAAAAAAAAAAAAAAAAAAAAH !",
 		"text4",
 	};
 	public override void _Ready()
