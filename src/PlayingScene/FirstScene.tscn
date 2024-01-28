@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bjmthmj0jvit0" path="res://ressources/Background/Sun.png" id="4_filin"]
 [ext_resource type="Script" path="res://Scripts/GiantState/Area2D.cs" id="4_rvr8o"]
 [ext_resource type="Texture2D" uid="uid://cjoxfctpu3wt8" path="res://ressources/icon.svg" id="5_s6ppp"]
-[ext_resource type="Texture2D" uid="uid://04pfywxjb76b" path="res://ressources/Player/mario-frame-1.png" id="8_bi40a"]
 [ext_resource type="Script" path="res://Scripts/Player/Head.cs" id="9_4neh3"]
-[ext_resource type="Texture2D" uid="uid://dx4wvdndwa8e8" path="res://ressources/Player/mario-frame-2.png" id="9_r532h"]
-[ext_resource type="Texture2D" uid="uid://7wahs1wtd1w5" path="res://ressources/Player/mario-frame-3.png" id="10_owctv"]
+[ext_resource type="Texture2D" uid="uid://y2xp6odb5qnj" path="res://ressources/Player/0.png" id="10_0hx55"]
+[ext_resource type="Texture2D" uid="uid://cnxjkd62lkqaf" path="res://ressources/Player/1.png" id="11_33knu"]
 [ext_resource type="Texture2D" uid="uid://fxf7vv17m35o" path="res://ressources/Player/Head.png" id="11_mw7a4"]
+[ext_resource type="Texture2D" uid="uid://djsm0806ktpkc" path="res://ressources/Player/4.png" id="12_kcr00"]
 [ext_resource type="AudioStream" uid="uid://c7q4ee1y1665f" path="res://ressources/Super Mario Bros SFX/saut.wav" id="13_w2fur"]
 [ext_resource type="PackedScene" uid="uid://wg3nvehsxu37" path="res://Monsters/Koopa/Koopa.tscn" id="14_stxde"]
 
@@ -38,7 +38,7 @@ size = Vector2(710.001, 1380)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_owctv")
+"texture": ExtResource("10_0hx55")
 }],
 "loop": true,
 "name": &"default",
@@ -51,19 +51,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_owctv")
+"texture": ExtResource("10_0hx55")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_r532h")
+"texture": ExtResource("11_33knu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_bi40a")
+"texture": ExtResource("10_0hx55")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_r532h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_bi40a")
+"texture": ExtResource("12_kcr00")
 }],
 "loop": true,
 "name": &"move",
@@ -296,13 +293,14 @@ offset = Vector2(200, -120)
 zoom = Vector2(1.3, 1.1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(0, 65.5003)
+position = Vector2(-60, 9.99982)
 scale = Vector2(1, 1.09507)
 sprite_frames = SubResource("SpriteFrames_6rssr")
-animation = &"move"
+flip_h = true
 
 [node name="Head" type="Sprite2D" parent="Player"]
-position = Vector2(40, -130)
+visible = false
+position = Vector2(-59.9998, 19.9999)
 texture = ExtResource("11_mw7a4")
 flip_h = true
 script = ExtResource("9_4neh3")

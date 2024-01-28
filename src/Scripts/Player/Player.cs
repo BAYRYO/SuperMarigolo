@@ -60,13 +60,13 @@ public partial class Player : CharacterBody2D
 		{
 			if (Input.IsActionPressed("move_right"))
 			{
-				_bodyAnimated.FlipH = true;
+				_bodyAnimated.FlipH = false;
 				_head.FlipH = false;
 				_bodyAnimated.Play("move");
 			}
 			else if (Input.IsActionPressed("move_left"))
 			{
-				_bodyAnimated.FlipH = false;
+				_bodyAnimated.FlipH = true;
 				_head.FlipH = true;
 				_bodyAnimated.Play("move");
 			}
