@@ -84,7 +84,7 @@ tracks/5/path = NodePath("Bowsinette/Bowsinette-embrasse:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(30, 34),
+"times": PackedFloat32Array(30, 33),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-48.8508, -27.3032), Vector2(-126.851, -31.3032)]
@@ -96,7 +96,7 @@ tracks/6/path = NodePath("Bowsinette/Bowsinette-body:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(30, 34),
+"times": PackedFloat32Array(30, 33),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1.05197, -0.742584), Vector2(-81.8508, -3.30316)]
