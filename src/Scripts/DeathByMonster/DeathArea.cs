@@ -1,24 +1,24 @@
 using Godot;
 using System;
 
-public partial class KillMonster : Area2D
+public partial class DeathArea : Area2D
 {
-	private static CharacterBody2D _character;
+	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_character = GetNode<CharacterBody2D>("../../RicardMan");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
-
+	
 	public void _on_body_entered(Node body)
 	{
-		if (body.IsInGroup("player"))
+		if (body.IsInGroup("dead"))
 		{
-			
+			GetTree().Quit();
 		}
+		
 	}
 }
