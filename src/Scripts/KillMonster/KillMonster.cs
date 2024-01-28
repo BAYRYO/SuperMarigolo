@@ -16,6 +16,7 @@ public partial class KillMonster : Area2D
 
 	public void _on_body_entered()
 	{
+		GD.Print("Je suis tombé dessus");
 		_character.Visible = false;
 	}
 }

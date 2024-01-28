@@ -170,45 +170,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57diy"]
 size = Vector2(1389, 965)
 
-[sub_resource type="Animation" id="Animation_rxowr"]
-resource_name = "spawn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -1600)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(7.5, 91.5), Vector2(7.5, -1500)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/Kill:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(15.5, -507.75), Vector2(15.5, -2100)]
-}
-
 [sub_resource type="Animation" id="Animation_t41v5"]
 length = 0.001
 tracks/0/type = "value"
@@ -238,7 +199,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/Kill:position")
+tracks/2/path = NodePath("KillingArea/Kill:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -246,6 +207,45 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(15.5, -507.75)]
+}
+
+[sub_resource type="Animation" id="Animation_rxowr"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7.5, 91.5), Vector2(7.5, -1500)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KillingArea/Kill:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(15.5, -507.75), Vector2(15.5, -2100)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m4604"]
@@ -395,13 +395,12 @@ libraries = {
 "": SubResource("AnimationLibrary_m4604")
 }
 
-[node name="Area2D" type="Area2D" parent="RicardMan"]
+[node name="KillingArea" type="Area2D" parent="RicardMan"]
 position = Vector2(60, 0)
 script = ExtResource("14_mha2m")
 
-[node name="Kill" type="CollisionShape2D" parent="RicardMan/Area2D"]
+[node name="Kill" type="CollisionShape2D" parent="RicardMan/KillingArea"]
 position = Vector2(15.5, -507.75)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ru3mk")
 
 [node name="GiftBloc" type="Area2D" parent="."]
@@ -429,5 +428,5 @@ shape = SubResource("RectangleShape2D_b70pq")
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="timeout" from="Player/Head/Timer" to="Player/Head" method="_on_timer_timeout"]
-[connection signal="body_entered" from="RicardMan/Area2D" to="RicardMan/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="RicardMan/KillingArea" to="RicardMan/KillingArea" method="_on_body_entered"]
 [connection signal="body_entered" from="GiftBloc" to="GiftBloc" method="_on_body_entered"]
