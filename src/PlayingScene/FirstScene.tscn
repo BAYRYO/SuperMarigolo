@@ -12,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://wd1b0xembvxq" path="res://ressources/Monsters/RicardMan.png" id="8_38807"]
 [ext_resource type="Script" path="res://Scripts/Player/Head.cs" id="9_4neh3"]
 [ext_resource type="Script" path="res://Scripts/GiftBloc/GiftBloc.cs" id="9_w348e"]
-[ext_resource type="Texture2D" path="res://ressources/Player/0.png" id="10_0hx55"]
-[ext_resource type="Texture2D" path="res://ressources/Player/1.png" id="11_33knu"]
+[ext_resource type="Texture2D" uid="uid://y2xp6odb5qnj" path="res://ressources/Player/0.png" id="10_0hx55"]
+[ext_resource type="Texture2D" uid="uid://cnxjkd62lkqaf" path="res://ressources/Player/1.png" id="11_33knu"]
 [ext_resource type="Texture2D" uid="uid://fxf7vv17m35o" path="res://ressources/Player/Head.png" id="11_mw7a4"]
-[ext_resource type="Texture2D" path="res://ressources/Player/4.png" id="12_kcr00"]
+[ext_resource type="Texture2D" uid="uid://djsm0806ktpkc" path="res://ressources/Player/4.png" id="12_kcr00"]
 [ext_resource type="AudioStream" uid="uid://c7q4ee1y1665f" path="res://ressources/Super Mario Bros SFX/saut.wav" id="13_w2fur"]
 [ext_resource type="Script" path="res://Scripts/KillMonster/KillMonster.cs" id="14_mha2m"]
 [ext_resource type="PackedScene" uid="uid://wg3nvehsxu37" path="res://Monsters/Koopa/Koopa.tscn" id="14_stxde"]
@@ -81,7 +81,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_a8rwo"]
 resource_name = "rocket"
-length = 1.5
+length = 1.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -89,10 +89,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1258.04, -42.0278), Vector2(-1183.4, -8.27231)]
+"values": [Vector2(1258.04, -42.0278), Vector2(-2657.52, -18.6643)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -101,7 +101,7 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -305,7 +305,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru3mk"]
-size = Vector2(1249, 232.5)
+size = Vector2(1500, 1340)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rx57"]
 size = Vector2(87.5, 88)
@@ -711,6 +711,7 @@ script = ExtResource("14_mha2m")
 
 [node name="Kill" type="CollisionShape2D" parent="RicardMan/KillingArea"]
 position = Vector2(15.5, -507.75)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ru3mk")
 
 [node name="GiftBloc" type="Area2D" parent="."]
